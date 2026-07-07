@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ctunqc8on58do"]
+
+[ext_resource type="Script" uid="uid://0kjxekstauo4" path="res://scripts/game_manager.gd" id="1_twpsu"]
+[ext_resource type="Script" uid="uid://cusy6gdd87cpu" path="res://scripts/time_manager.gd" id="2_lrqlo"]
+[ext_resource type="Script" uid="uid://b87fkhcjb46bb" path="res://scripts/speed_manager.gd" id="3_lrqlo"]
+[ext_resource type="Script" uid="uid://bvm0kgc4vcsod" path="res://scripts/banana_prototype.gd" id="4_sqa0i"]
+
+[node name="root" type="Node2D" unique_id=689511176]
+
+[node name="GameManager" type="Node" parent="." unique_id=120810750]
+script = ExtResource("1_twpsu")
+
+[node name="TimeManager" type="Node" parent="." unique_id=2114011219 node_paths=PackedStringArray("game_manager")]
+script = ExtResource("2_lrqlo")
+game_manager = NodePath("../GameManager")
+
+[node name="SpeedManager" type="Node" parent="TimeManager" unique_id=312995186]
+script = ExtResource("3_lrqlo")
+speedfactor = 20.0
+minutelength = 0.1
+
+[node name="BananaPrototype" type="Node" parent="." unique_id=546177776]
+script = ExtResource("4_sqa0i")
+
+[connection signal="speedsignal" from="TimeManager/SpeedManager" to="TimeManager" method="_on_speed_manager_speedsignal"]
