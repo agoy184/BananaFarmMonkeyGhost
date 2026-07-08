@@ -3,81 +3,20 @@
 [ext_resource type="Script" uid="uid://0kjxekstauo4" path="res://scripts/game_manager.gd" id="1_twpsu"]
 [ext_resource type="Script" uid="uid://cusy6gdd87cpu" path="res://scripts/time_manager.gd" id="2_lrqlo"]
 [ext_resource type="Script" uid="uid://dcfisr4vgcl7s" path="res://scripts/banana_manager.gd" id="2_xsp7o"]
+[ext_resource type="Script" uid="uid://liyk1knadwc1" path="res://scripts/inventory_manager.gd" id="2_y3xxt"]
 [ext_resource type="Script" uid="uid://b87fkhcjb46bb" path="res://scripts/speed_manager.gd" id="3_lrqlo"]
-[ext_resource type="Script" uid="uid://bvm0kgc4vcsod" path="res://scripts/banana_prototype.gd" id="4_sqa0i"]
 [ext_resource type="Texture2D" uid="uid://chf8ekj540ytj" path="res://assets/temp/oldman.png" id="5_jh1ax"]
 [ext_resource type="Script" uid="uid://cbj72t6aviakm" path="res://scripts/oldman_movement.gd" id="5_kycxp"]
 [ext_resource type="Script" uid="uid://c0oy2b2cc65" path="res://scripts/monkey_movement.gd" id="6_5sfjl"]
 [ext_resource type="Script" uid="uid://bp1mig0vrcuxk" path="res://scripts/monkey_catches.gd" id="7_3hfy5"]
 [ext_resource type="Texture2D" uid="uid://bkyeokjr6yeau" path="res://assets/temp/monkey.png" id="7_j287u"]
-[ext_resource type="Texture2D" uid="uid://d14a4dnowp0tu" path="res://assets/temp/Banana_Mockup.png" id="10_7pvxh"]
-[ext_resource type="Script" uid="uid://cvgokulqq8c8h" path="res://scripts/banana_graphics.gd" id="10_y3xxt"]
+[ext_resource type="PackedScene" uid="uid://ctxuo3k5m7pqu" path="res://scenes/banana_tree.tscn" id="10_7pvxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ostoq"]
 size = Vector2(206.66675, 256.66663)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_loq3h"]
 size = Vector2(200, 230)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y3xxt"]
-atlas = ExtResource("10_7pvxh")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsp7o"]
-atlas = ExtResource("10_7pvxh")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5cgh"]
-atlas = ExtResource("10_7pvxh")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgks2"]
-atlas = ExtResource("10_7pvxh")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dylgi"]
-atlas = ExtResource("10_7pvxh")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jrhyn"]
-atlas = ExtResource("10_7pvxh")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_log26"]
-atlas = ExtResource("10_7pvxh")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ostoq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y3xxt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xsp7o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l5cgh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vgks2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dylgi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jrhyn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_log26")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ostoq"]
-radius = 20.024984
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajtct"]
 size = Vector2(1233, 27)
@@ -87,10 +26,14 @@ size = Vector2(1233, 27)
 [node name="GameManager" type="Node" parent="." unique_id=120810750]
 script = ExtResource("1_twpsu")
 
-[node name="BananaManager" type="Node" parent="." unique_id=182585195 node_paths=PackedStringArray("plants", "time")]
+[node name="InventoryManager" type="Node" parent="GameManager" unique_id=1550652284]
+script = ExtResource("2_y3xxt")
+
+[node name="BananaManager" type="Node" parent="." unique_id=182585195 node_paths=PackedStringArray("plants", "time", "inventory")]
 script = ExtResource("2_xsp7o")
-plants = [NodePath("../MovementPrototypeControl/Banana_Plants/Banana1")]
+plants = [NodePath("../MovementPrototypeControl/Banana_Plants/Banana_Tree1"), NodePath("../MovementPrototypeControl/Banana_Plants/Banana_Tree2"), NodePath("../MovementPrototypeControl/Banana_Plants/Banana_Tree3")]
 time = NodePath("../TimeManager")
+inventory = NodePath("../GameManager/InventoryManager")
 
 [node name="TimeManager" type="Node" parent="." unique_id=2114011219 node_paths=PackedStringArray("game_manager")]
 script = ExtResource("2_lrqlo")
@@ -99,7 +42,6 @@ game_manager = NodePath("../GameManager")
 [node name="SpeedManager" type="Node" parent="TimeManager" unique_id=312995186]
 process_mode = 3
 script = ExtResource("3_lrqlo")
-speedfactor = 100.0
 
 [node name="MovementManager" type="Node" parent="." unique_id=1778853816]
 
@@ -152,27 +94,21 @@ shape = SubResource("RectangleShape2D_loq3h")
 
 [node name="Banana_Plants" type="Node2D" parent="MovementPrototypeControl" unique_id=341714588]
 
-[node name="Banana1" type="Node2D" parent="MovementPrototypeControl/Banana_Plants" unique_id=636128087]
-position = Vector2(481, 242)
-script = ExtResource("4_sqa0i")
-health = 90.0
-bananas = 10
+[node name="Banana_Tree1" parent="MovementPrototypeControl/Banana_Plants" unique_id=1880896969 node_paths=PackedStringArray("player") instance=ExtResource("10_7pvxh")]
+position = Vector2(499, 335)
+player = NodePath("../../Rancher_Body")
 
-[node name="BananaGraphics" type="Node2D" parent="MovementPrototypeControl/Banana_Plants/Banana1" unique_id=1113374127 node_paths=PackedStringArray("plant", "sprite")]
-script = ExtResource("10_y3xxt")
-plant = NodePath("..")
-sprite = NodePath("../BananaBody/BananaSprite")
+[node name="Banana_Tree2" parent="MovementPrototypeControl/Banana_Plants" unique_id=74890072 node_paths=PackedStringArray("player") instance=ExtResource("10_7pvxh")]
+position = Vector2(312, 240)
+health = 20.0
+bananas = 0
+player = NodePath("../../Rancher_Body")
 
-[node name="BananaBody" type="StaticBody2D" parent="MovementPrototypeControl/Banana_Plants/Banana1" unique_id=644782660]
-collision_layer = 4
-
-[node name="BananaSprite" type="AnimatedSprite2D" parent="MovementPrototypeControl/Banana_Plants/Banana1/BananaBody" unique_id=1190373788]
-sprite_frames = SubResource("SpriteFrames_ostoq")
-frame = 3
-
-[node name="BananaCollider" type="CollisionShape2D" parent="MovementPrototypeControl/Banana_Plants/Banana1/BananaBody" unique_id=1697141512]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_ostoq")
+[node name="Banana_Tree3" parent="MovementPrototypeControl/Banana_Plants" unique_id=2077078352 node_paths=PackedStringArray("player") instance=ExtResource("10_7pvxh")]
+position = Vector2(496, 494)
+health = 50.0
+bananas = 4
+player = NodePath("../../Rancher_Body")
 
 [node name="Boundaries" type="Node2D" parent="MovementPrototypeControl" unique_id=1935701329]
 
@@ -213,4 +149,3 @@ shape = SubResource("RectangleShape2D_ajtct")
 [connection signal="min_signal" from="TimeManager" to="BananaManager" method="_on_time_manager_min_signal"]
 [connection signal="speedsignal" from="TimeManager/SpeedManager" to="TimeManager" method="_on_speed_manager_speedsignal"]
 [connection signal="body_entered" from="MovementPrototypeControl/Monkey_Body/Monkey_Area" to="MovementManager/MonkeyMovement/MonkeyCatches" method="_on_monkey_area_body_entered"]
-[connection signal="status_signal" from="MovementPrototypeControl/Banana_Plants/Banana1" to="MovementPrototypeControl/Banana_Plants/Banana1/BananaGraphics" method="_on_banana_status_signal"]

@@ -73,6 +73,15 @@ func grow_bananas():
 			bananas = 0
 	else:
 		bananas = 0
+#a small function that returns that checks if there are bananas and harvests them
+func harvest_bananas():
+	var harvest = bananas
+	if harvest == 0:
+		return 0
+	else:
+		bananas = 0
+		update_status()
+		return harvest
 
 #just a helper function doing all the plant should as the time goes on
 func lifecycle():
@@ -80,6 +89,13 @@ func lifecycle():
 	health_drift()
 	update_status()
 
-#this should be all.
-#the waterloss function should be called via signal every in-game minute.
-#the watering function, along with a harvesting function, hould be called manually by the player.
+#setting up the Area2D function
+@export var player : CharacterBody2D
+@export var area : Area2D
+
+#function to tell if the player is close to the plant
+func is_close():
+	return area.is_close
+
+func _ready():
+	update_status()

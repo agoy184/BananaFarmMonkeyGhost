@@ -10,8 +10,6 @@ func setframe(f):
 func update_sprite():
 	var status = plant.getstatus()
 	var bananas = plant.bananas
-	print("status: " + status)
-	print("bananas: " + str(bananas))
 	if status == "Flourishing" && bananas != 0 :
 		setframe(6)
 	elif status == "Flourishing" && bananas == 0 :
