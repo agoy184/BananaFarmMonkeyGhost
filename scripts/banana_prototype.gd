@@ -21,17 +21,34 @@ func health_drift():
 		health += health_step
 	update_status()
 
+#this signal tells the graphics manager when it has to update the sprite
+signal status_signal
 #and we need to update the plant's status accordingly
 func update_status():
 	if health >= 80.0:
 		tree_status = status.Flourishing
-		return
 	elif health >= 50.0:
 		tree_status = status.Healthy
 	elif health >= 15.0:
 		tree_status = status.Ailing
 	else:
 		tree_status = status.Withered
+		bananas = 0
+	status_signal.emit()
+
+#gets the status as a string
+func getstatus():
+	if tree_status == status.Flourishing:
+		return "Flourishing"
+	elif tree_status == status.Healthy:
+		return "Healthy"
+	elif tree_status == status.Ailing:
+		return "Ailing"
+	elif tree_status == status.Withered:
+		return "Withered"
+	else:
+		print("Could not fetch a proper status")
+		return "Withered"
 
 #when the rancher tend to the plant
 func watering():
@@ -57,6 +74,11 @@ func grow_bananas():
 	else:
 		bananas = 0
 
+#just a helper function doing all the plant should as the time goes on
+func lifecycle():
+	waterloss()
+	health_drift()
+	update_status()
 
 #this should be all.
 #the waterloss function should be called via signal every in-game minute.

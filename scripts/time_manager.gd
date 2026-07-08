@@ -23,11 +23,14 @@ var weekday_array = [
 @export var hour_start = 18
 @export var hour_end = 6
 
+#we need a signal to tell the game that time is indeed passing
+signal min_signal
 func min_ahead():
 	minute += 1
 	if minute >= 60:
 		minute = 0
 		hour_ahead()
+	min_signal.emit()
 
 func hour_ahead():
 	hour += 1

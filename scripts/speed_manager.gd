@@ -14,3 +14,4 @@ func _process(delta):
 	if timer >= minutelength:
 		timer = 0.0
 		speedsignal.emit()
+		
