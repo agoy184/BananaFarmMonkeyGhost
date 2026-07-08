@@ -4,6 +4,20 @@
 [ext_resource type="Script" uid="uid://cusy6gdd87cpu" path="res://scripts/time_manager.gd" id="2_lrqlo"]
 [ext_resource type="Script" uid="uid://b87fkhcjb46bb" path="res://scripts/speed_manager.gd" id="3_lrqlo"]
 [ext_resource type="Script" uid="uid://bvm0kgc4vcsod" path="res://scripts/banana_prototype.gd" id="4_sqa0i"]
+[ext_resource type="Texture2D" uid="uid://chf8ekj540ytj" path="res://assets/temp/oldman.png" id="5_jh1ax"]
+[ext_resource type="Script" uid="uid://cbj72t6aviakm" path="res://scripts/oldman_movement.gd" id="5_kycxp"]
+[ext_resource type="Script" uid="uid://c0oy2b2cc65" path="res://scripts/monkey_movement.gd" id="6_5sfjl"]
+[ext_resource type="Script" uid="uid://bp1mig0vrcuxk" path="res://scripts/monkey_catches.gd" id="7_3hfy5"]
+[ext_resource type="Texture2D" uid="uid://bkyeokjr6yeau" path="res://assets/temp/monkey.png" id="7_j287u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ostoq"]
+size = Vector2(206.66675, 256.66663)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_loq3h"]
+size = Vector2(200, 230)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajtct"]
+size = Vector2(1233, 27)
 
 [node name="root" type="Node2D" unique_id=689511176]
 
@@ -16,10 +30,90 @@ game_manager = NodePath("../GameManager")
 
 [node name="SpeedManager" type="Node" parent="TimeManager" unique_id=312995186]
 script = ExtResource("3_lrqlo")
-speedfactor = 20.0
-minutelength = 0.1
 
 [node name="BananaPrototype" type="Node" parent="." unique_id=546177776]
 script = ExtResource("4_sqa0i")
 
+[node name="MovementManager" type="Node" parent="." unique_id=1778853816]
+
+[node name="RancherMovement" type="Node" parent="MovementManager" unique_id=1235569712 node_paths=PackedStringArray("rancher_body")]
+script = ExtResource("5_kycxp")
+rancher_body = NodePath("../../MovementPrototypeControl/Rancher_Body")
+
+[node name="MonkeyMovement" type="Node" parent="MovementManager" unique_id=1075816075 node_paths=PackedStringArray("rancher_body", "monkey_body")]
+script = ExtResource("6_5sfjl")
+rancher_body = NodePath("../../MovementPrototypeControl/Rancher_Body")
+monkey_body = NodePath("../../MovementPrototypeControl/Monkey_Body")
+
+[node name="MonkeyCatches" type="Node" parent="MovementManager/MonkeyMovement" unique_id=838908677 node_paths=PackedStringArray("rancher_body")]
+script = ExtResource("7_3hfy5")
+rancher_body = NodePath("../../../MovementPrototypeControl/Rancher_Body")
+
+[node name="MovementPrototypeControl" type="Control" parent="." unique_id=2137568396]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 656.0
+
+[node name="Rancher_Body" type="CharacterBody2D" parent="MovementPrototypeControl" unique_id=1517730236]
+position = Vector2(250, 400)
+scale = Vector2(0.3, 0.3)
+collision_mask = 0
+
+[node name="Rancher_Sprite" type="Sprite2D" parent="MovementPrototypeControl/Rancher_Body" unique_id=493339095]
+texture = ExtResource("5_jh1ax")
+
+[node name="Rancher_Collider" type="CollisionShape2D" parent="MovementPrototypeControl/Rancher_Body" unique_id=1430250168]
+position = Vector2(-3.333374, -1.666687)
+shape = SubResource("RectangleShape2D_ostoq")
+
+[node name="Monkey_Body" type="CharacterBody2D" parent="MovementPrototypeControl" unique_id=527774286]
+position = Vector2(968, 470)
+scale = Vector2(0.3, 0.3)
+collision_layer = 2
+
+[node name="Monkey_Sprite" type="Sprite2D" parent="MovementPrototypeControl/Monkey_Body" unique_id=441032022]
+texture = ExtResource("7_j287u")
+
+[node name="Monkey_Area" type="Area2D" parent="MovementPrototypeControl/Monkey_Body" unique_id=1422669275]
+position = Vector2(-3.333374, -1.666687)
+collision_layer = 2
+
+[node name="Monkey_Collider" type="CollisionShape2D" parent="MovementPrototypeControl/Monkey_Body/Monkey_Area" unique_id=369546976]
+position = Vector2(0, 3.333252)
+shape = SubResource("RectangleShape2D_loq3h")
+
+[node name="Boundaries" type="Node2D" parent="MovementPrototypeControl" unique_id=1935701329]
+
+[node name="BoundaryTop" type="StaticBody2D" parent="MovementPrototypeControl/Boundaries" unique_id=1494981850]
+position = Vector2(-1, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementPrototypeControl/Boundaries/BoundaryTop" unique_id=2041197778]
+position = Vector2(570.5, 23.5)
+shape = SubResource("RectangleShape2D_ajtct")
+
+[node name="BoundaryLeft" type="StaticBody2D" parent="MovementPrototypeControl/Boundaries" unique_id=1765680894]
+position = Vector2(32, -54)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementPrototypeControl/Boundaries/BoundaryLeft" unique_id=800026597]
+position = Vector2(570.5, 23.5)
+shape = SubResource("RectangleShape2D_ajtct")
+
+[node name="BoundaryBottom" type="StaticBody2D" parent="MovementPrototypeControl/Boundaries" unique_id=65469889]
+position = Vector2(0, 608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementPrototypeControl/Boundaries/BoundaryBottom" unique_id=13327178]
+position = Vector2(570.5, 23.5)
+shape = SubResource("RectangleShape2D_ajtct")
+
+[node name="BoundaryRight" type="StaticBody2D" parent="MovementPrototypeControl/Boundaries" unique_id=2072523049]
+position = Vector2(1186, -58)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementPrototypeControl/Boundaries/BoundaryRight" unique_id=1717883607]
+position = Vector2(570.5, 23.5)
+shape = SubResource("RectangleShape2D_ajtct")
+
 [connection signal="speedsignal" from="TimeManager/SpeedManager" to="TimeManager" method="_on_speed_manager_speedsignal"]
+[connection signal="body_entered" from="MovementPrototypeControl/Monkey_Body/Monkey_Area" to="MovementManager/MonkeyMovement/MonkeyCatches" method="_on_monkey_area_body_entered"]

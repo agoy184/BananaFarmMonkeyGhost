@@ -65,4 +65,3 @@ func debug_time():
 
 func _on_speed_manager_speedsignal():
 	min_ahead()
-	debug_time()
