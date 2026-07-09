@@ -8,8 +8,7 @@ extends Node
 @export var inventory : Node
 
 func _on_time_manager_min_signal():
-	for i in plants:
-		i.lifecycle()
+	pass
 
 #harvesting function to be called to actually harvest the bananas
 func gardening(i):
@@ -28,3 +27,8 @@ func _input(event):
 	if event.is_action_pressed("Interact"):
 		for i in plants:
 			gardening(i)
+
+
+func _on_time_manager_daysignal():
+	for i in plants:
+		i.lifecycle()

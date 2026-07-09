@@ -10,13 +10,12 @@ func setframe(f):
 func update_sprite():
 	var status = plant.getstatus()
 	var bananas = plant.bananas
-	if status == "Flourishing" && bananas != 0 :
-		setframe(6)
-	elif status == "Flourishing" && bananas == 0 :
+	print(str(status) + " " + str(bananas))
+	if status == "Flourishing" && bananas == 2 :
 		setframe(5)
-	elif status == "Healthy" && bananas != 0 :
+	elif (status == "Healthy" || status == "Flourishing") && bananas == 1 :
 		setframe(4)
-	elif status == "Healthy" && bananas == 0 :
+	elif (status == "Healthy" || status == "Flourishing") && bananas == 0 :
 		setframe(3)
 	elif status == "Ailing" && bananas != 0 :
 		setframe(2)

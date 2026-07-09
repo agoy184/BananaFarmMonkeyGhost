@@ -41,6 +41,7 @@ func hour_ahead():
 		hour = hour_start
 		day_ends()
 
+signal daysignal
 func day_ahead():
 	numday += 1
 	#for readability, I number the days 1-7. but of course we need 0-6 for the array
@@ -49,11 +50,13 @@ func day_ahead():
 		arrday = 0
 	weekday = weekday_array[arrday]
 
+
 func day_ends():
 	if numday > daylimit:
 		game_manager.game_over()
 	else:
 		game_manager.new_day()
+		daysignal.emit()
 
 #returns the current time as a string
 func time_to_str():
