@@ -8,7 +8,7 @@ func game_start():
 
 func game_over():
 	#to be done later
-	pass
+	get_tree().reload_current_scene()
 
 func new_day():
 	pass

@@ -19,6 +19,11 @@ func gardening(i):
 		if harvest != 0:
 			inventory.add_bananas(harvest)
 
+#randomize plant condition at game start
+func _ready():
+	for i in plants:
+		i.random_bananas()
+
 func _input(event):
 	if event.is_action_pressed("Interact"):
 		for i in plants:

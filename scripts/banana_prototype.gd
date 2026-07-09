@@ -71,7 +71,7 @@ func grow_bananas():
 		bananas = randi()%6-1
 		if bananas <= 0:
 			bananas = 0
-	else:
+	elif tree_status == status.Withered:
 		bananas = 0
 #a small function that returns that checks if there are bananas and harvests them
 func harvest_bananas():
@@ -97,5 +97,10 @@ func lifecycle():
 func is_close():
 	return area.is_close
 
-func _ready():
+#to randomize plant status at game start
+func random_bananas():
+	health = randi()%60+30.0
+	water = randi()%60+30.0
 	update_status()
+	grow_bananas()
+	lifecycle()
