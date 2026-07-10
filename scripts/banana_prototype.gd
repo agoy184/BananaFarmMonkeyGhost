@@ -109,6 +109,6 @@ func is_close():
 
 #to randomize plant status at game start
 func random_bananas():
-	tree_status = randi()%3+1
+	tree_status = randi()%3+1 as status
 	water = false
 	grow_bananas()

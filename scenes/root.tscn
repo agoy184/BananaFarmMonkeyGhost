@@ -96,10 +96,13 @@ script = ExtResource("3_lrqlo")
 script = ExtResource("5_kycxp")
 rancher_body = NodePath("../../GameScene/Rancher_Body")
 
-[node name="MonkeyMovement" type="Node" parent="MovementManager" unique_id=1075816075 node_paths=PackedStringArray("rancher_body", "monkey_body")]
+[node name="MonkeyMovement" type="Node" parent="MovementManager" unique_id=1075816075 node_paths=PackedStringArray("rancher_body", "monkey_body", "inventory", "candle")]
 script = ExtResource("6_5sfjl")
 rancher_body = NodePath("../../GameScene/Rancher_Body")
 monkey_body = NodePath("../../GameScene/Monkey_Body")
+monkey_speed = 50.0
+inventory = NodePath("../../GameManager/InventoryManager")
+candle = NodePath("../../GameManager/CandleManager")
 
 [node name="MonkeyCatches" type="Node" parent="MovementManager/MonkeyMovement" unique_id=838908677 node_paths=PackedStringArray("rancher_body", "gmanager")]
 script = ExtResource("7_3hfy5")
@@ -142,6 +145,8 @@ position = Vector2(-3.333374, -1.666687)
 shape = SubResource("RectangleShape2D_ostoq")
 
 [node name="PointLight2D" type="PointLight2D" parent="GameScene/Rancher_Body" unique_id=112568403]
+color = Color(1, 0.81960785, 0.54901963, 1)
+energy = 1.2
 texture = ExtResource("17_ya6yc")
 texture_scale = 15.0
 
@@ -160,6 +165,12 @@ collision_layer = 2
 [node name="Monkey_Collider" type="CollisionShape2D" parent="GameScene/Monkey_Body/Monkey_Area" unique_id=369546976]
 position = Vector2(0, 3.333252)
 shape = SubResource("RectangleShape2D_loq3h")
+
+[node name="PointLight2D" type="PointLight2D" parent="GameScene/Monkey_Body" unique_id=1475533375]
+color = Color(0.5897268, 0.91593295, 0.9487905, 1)
+energy = 1.2
+texture = ExtResource("17_ya6yc")
+texture_scale = 4.0
 
 [node name="Banana_Plants" type="Node2D" parent="GameScene" unique_id=341714588]
 
@@ -278,6 +289,7 @@ color = Color(0, 0, 0, 1)
 [connection signal="daysignal" from="TimeManager" to="BananaManager" method="_on_time_manager_daysignal"]
 [connection signal="min_signal" from="TimeManager" to="GameManager/CandleManager" method="_on_time_manager_min_signal"]
 [connection signal="min_signal" from="TimeManager" to="BananaManager" method="_on_time_manager_min_signal"]
+[connection signal="min_signal" from="TimeManager" to="MovementManager/MonkeyMovement" method="_on_time_manager_min_signal"]
 [connection signal="min_signal" from="TimeManager" to="UIManager/ClockUI" method="_on_time_manager_min_signal"]
 [connection signal="speedsignal" from="TimeManager/SpeedManager" to="TimeManager" method="_on_speed_manager_speedsignal"]
 [connection signal="body_entered" from="GameScene/Monkey_Body/Monkey_Area" to="MovementManager/MonkeyMovement/MonkeyCatches" method="_on_monkey_area_body_entered"]

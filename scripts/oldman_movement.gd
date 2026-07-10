@@ -5,7 +5,7 @@ extends Node
 #export movement speed for easier balancing later
 @export var rancher_speed := 100.0
 
-func _physics_process(delta: float):
+func _physics_process(_delta):
 	#we grab an empty 2d vector and fill it with the input
 	var dir = Vector2.ZERO
 	dir.x = Input.get_axis("ui_left","ui_right")
