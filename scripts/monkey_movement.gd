@@ -82,6 +82,8 @@ func new_position():
 
 func _on_time_manager_min_signal():
 	is_going_bananas()
+func _on_time_manager_daysignal():
+	rage = 0.0
 
 func _ready():
 	is_going_bananas()
