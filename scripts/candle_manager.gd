@@ -58,5 +58,5 @@ func _input(event):
 
 func wax_str():
 	var wint = roundi(wax)
-	var wstr = "Wax : " + str(wint)
+	var wstr = "Wax " + str(wint)
 	return wstr

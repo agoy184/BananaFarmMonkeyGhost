@@ -18,6 +18,9 @@ extends Node
 @export var inventory : Node
 @export var candle : Node
 
+#lets the camera (or anyone else) flinch when the monkey shows up
+signal appear_signal
+
 func _physics_process(_delta):
 	if going_bananas:
 		enrage()
@@ -64,6 +67,7 @@ func appear():
 	monkey_body.visible = true
 	monkey_body.process_mode = Node.PROCESS_MODE_INHERIT
 	new_position()
+	appear_signal.emit()
 
 #the monkey disappears when the candle's power grows
 func disappear():

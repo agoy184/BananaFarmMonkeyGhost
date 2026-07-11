@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://n20016r36ify"]
+
+[ext_resource type="Script" uid="uid://dagpbjti5w1gs" path="res://scripts/house.gd" id="1_house"]
+[ext_resource type="Texture2D" uid="uid://dkjfjesv6ootq" path="res://assets/temp/Sprite-House.png" id="2_tex"]
+[ext_resource type="Script" uid="uid://bscnflkmvc4qy" path="res://scripts/house_area.gd" id="3_harea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_house"]
+radius = 75.0
+
+[node name="House" type="Node2D" unique_id=614680283]
+script = ExtResource("1_house")
+
+[node name="HouseSprite" type="Sprite2D" parent="." unique_id=1837075676]
+texture = ExtResource("2_tex")
+
+[node name="HouseBody" type="StaticBody2D" parent="." unique_id=2023287458]
+collision_layer = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseBody" unique_id=1357856371]
+position = Vector2(-54, -29)
+polygon = PackedVector2Array(55, 16, 53, 73, 60, 73, 60, 78, 65, 78, 65, 83, 70, 83, 70, 89, -10, 89, -10, 16)
+
+[node name="HouseArea" type="Area2D" parent="." unique_id=1052647485 node_paths=PackedStringArray("house")]
+script = ExtResource("3_harea")
+house = NodePath("..")
+
+[node name="HouseAreaCollision" type="CollisionShape2D" parent="HouseArea" unique_id=1814159945]
+visible = false
+shape = SubResource("CircleShape2D_house")
+
+[connection signal="body_entered" from="HouseArea" to="HouseArea" method="_on_body_entered"]
+[connection signal="body_exited" from="HouseArea" to="HouseArea" method="_on_body_exited"]

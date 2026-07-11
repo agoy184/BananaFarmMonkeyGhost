@@ -32,7 +32,7 @@ func empty_inventory():
 	sub_bananas(bananas)
 
 func str_inventory():
-	var invstr = str(bananas) + " bananas harvested"
+	var invstr = "Bananas: " + str(bananas)
 	return invstr
 
 func debug_inventory():

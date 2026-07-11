@@ -52,9 +52,27 @@ func getstatus():
 		print("Could not fetch a proper status")
 		return "Withered"
 
+#a couple of signals so the tree can show off when something happens to it
+signal harvest_signal(n)
+signal watered_signal
+#and a couple more so it can shiver and complain during the cut
+signal strain_signal(x)
+signal snap_signal
+
+#the harvest manager reports how hard the rancher is pulling
+func straining(x):
+	strain_signal.emit(x)
+
+#the harvest manager reports a botched cut
+func snapped_stem():
+	snap_signal.emit()
+
 #when the rancher tend to the plant
 func watering():
 	water = true
+	#only celebrate the watering when there was nothing to pick, a real harvest has its own signal
+	if bananas == 0:
+		watered_signal.emit()
 
 #I believe what's below was slightly overengineered. Let's focus on the core gameplay
 #the plant loses water over time
@@ -84,6 +102,7 @@ func harvest_bananas():
 	else:
 		bananas = 0
 		status_signal.emit()
+		harvest_signal.emit(harvest)
 		return harvest
 
 #promoted to the major function influencing the plant's daily cycle

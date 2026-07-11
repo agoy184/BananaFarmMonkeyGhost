@@ -4,6 +4,8 @@ extends Node
 @export var rancher_body : CharacterBody2D
 #export movement speed for easier balancing later
 @export var rancher_speed := 100.0
+#the harvest manager flips this while the rancher is busy sawing at a stem
+@export var locked := false
 
 func _physics_process(_delta):
 	#we grab an empty 2d vector and fill it with the input
@@ -11,6 +13,8 @@ func _physics_process(_delta):
 	dir.x = Input.get_axis("ui_left","ui_right")
 	dir.y = Input.get_axis("ui_up","ui_down")
 	dir = dir.normalized()
-	
+	if locked:
+		dir = Vector2.ZERO
+
 	rancher_body.velocity = dir * rancher_speed
 	rancher_body.move_and_slide()

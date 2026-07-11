@@ -10,8 +10,10 @@ signal speedsignal
 var timer := 0.0
 
 func _process(delta):
+	#this node always processes, so the clock stops itself when the game is paused
+	if get_tree().paused:
+		return
 	timer += delta * speedfactor
 	if timer >= minutelength:
 		timer = 0.0
 		speedsignal.emit()
-		

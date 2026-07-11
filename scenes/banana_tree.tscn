@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cvgokulqq8c8h" path="res://scripts/banana_graphics.gd" id="2_26hu8"]
 [ext_resource type="Texture2D" uid="uid://lkplytbhni13" path="res://assets/Banana_Trees.png" id="3_26hu8"]
 [ext_resource type="Script" uid="uid://c2r67yg0rcya2" path="res://scripts/banana_area.gd" id="4_26hu8"]
+[ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="5_light"]
+[ext_resource type="Script" uid="uid://2fvweitxmk2i" path="res://scripts/tree_juice.gd" id="6_juice"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnuoh"]
 atlas = ExtResource("3_26hu8")
@@ -61,9 +63,18 @@ radius = 11.045361
 [sub_resource type="CircleShape2D" id="CircleShape2D_ajtct"]
 radius = 29.427877
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_burst"]
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 200, 0)
+scale_min = 3.0
+scale_max = 5.0
+color = Color(1, 0.9, 0.3, 1)
+
 [node name="Banana_Tree1" type="Node2D" unique_id=1880896969 node_paths=PackedStringArray("area")]
 script = ExtResource("1_lbdmo")
-health = 90.0
 bananas = 10
 area = NodePath("BananaBody/BananaArea")
 
@@ -91,6 +102,33 @@ b_tree = NodePath("../..")
 [node name="BananaAreaCollision" type="CollisionShape2D" parent="BananaBody/BananaArea" unique_id=646434740]
 shape = SubResource("CircleShape2D_ajtct")
 
+[node name="TreeGlow" type="PointLight2D" parent="BananaBody" unique_id=1661320411]
+position = Vector2(0, -40)
+color = Color(1, 0.85, 0.5, 1)
+energy = 0.0
+texture = ExtResource("5_light")
+texture_scale = 2.0
+
+[node name="HarvestBurst" type="GPUParticles2D" parent="BananaBody" unique_id=575614357]
+position = Vector2(0, -40)
+emitting = false
+amount = 12
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_burst")
+
+[node name="TreeJuice" type="Node2D" parent="." unique_id=423805313 node_paths=PackedStringArray("glow", "sprite", "burst")]
+script = ExtResource("6_juice")
+glow = NodePath("../BananaBody/TreeGlow")
+sprite = NodePath("../BananaBody/BananaSprite")
+burst = NodePath("../BananaBody/HarvestBurst")
+
+[connection signal="harvest_signal" from="." to="TreeJuice" method="_on_banana_tree_harvest_signal"]
+[connection signal="snap_signal" from="." to="TreeJuice" method="_on_banana_tree_snap_signal"]
 [connection signal="status_signal" from="." to="BananaGraphics" method="_on_banana_status_signal"]
+[connection signal="strain_signal" from="." to="TreeJuice" method="_on_banana_tree_strain_signal"]
+[connection signal="watered_signal" from="." to="TreeJuice" method="_on_banana_tree_watered_signal"]
 [connection signal="body_entered" from="BananaBody/BananaArea" to="BananaBody/BananaArea" method="_on_body_entered"]
 [connection signal="body_exited" from="BananaBody/BananaArea" to="BananaBody/BananaArea" method="_on_body_exited"]
+[connection signal="proximity_signal" from="BananaBody/BananaArea" to="TreeJuice" method="_on_banana_area_proximity_signal"]
