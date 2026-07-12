@@ -5,7 +5,7 @@ extends Node
 
 #the resting brightness and size of the flame
 @export var base_energy := 1.2
-@export var base_scale := 10.0
+@export var base_scale := 1.5
 #how far the flicker can wander from the base values
 @export var flicker_amount := 0.15
 #how often the flame picks a new flicker target, per second

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://n20016r36ify"]
 
 [ext_resource type="Script" uid="uid://dagpbjti5w1gs" path="res://scripts/house.gd" id="1_house"]
-[ext_resource type="Texture2D" uid="uid://dkjfjesv6ootq" path="res://assets/temp/Sprite-House.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://dpjrak684qal0" path="res://assets/Sprite-House-New.png" id="2_se78b"]
 [ext_resource type="Script" uid="uid://bscnflkmvc4qy" path="res://scripts/house_area.gd" id="3_harea"]
+[ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="4_3bgk5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_house"]
 radius = 75.0
@@ -11,7 +12,7 @@ radius = 75.0
 script = ExtResource("1_house")
 
 [node name="HouseSprite" type="Sprite2D" parent="." unique_id=1837075676]
-texture = ExtResource("2_tex")
+texture = ExtResource("2_se78b")
 
 [node name="HouseBody" type="StaticBody2D" parent="." unique_id=2023287458]
 collision_layer = 8
@@ -27,6 +28,14 @@ house = NodePath("..")
 [node name="HouseAreaCollision" type="CollisionShape2D" parent="HouseArea" unique_id=1814159945]
 visible = false
 shape = SubResource("CircleShape2D_house")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=510189722]
+position = Vector2(-23.999996, 28)
+scale = Vector2(0.5647833, 0.5647833)
+color = Color(1, 0.81960785, 0.54901963, 1)
+energy = 1.2
+texture = ExtResource("4_3bgk5")
+texture_scale = 0.5
 
 [connection signal="body_entered" from="HouseArea" to="HouseArea" method="_on_body_entered"]
 [connection signal="body_exited" from="HouseArea" to="HouseArea" method="_on_body_exited"]

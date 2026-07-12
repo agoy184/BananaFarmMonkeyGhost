@@ -2,6 +2,7 @@ extends Node
 #pretty simple, this one is for moving the rancher
 
 @export var rancher_body : CharacterBody2D
+@export var rancher_sprite : AnimatedSprite2D
 #export movement speed for easier balancing later
 @export var rancher_speed := 100.0
 #the harvest manager flips this while the rancher is busy sawing at a stem
@@ -18,3 +19,11 @@ func _physics_process(_delta):
 
 	rancher_body.velocity = dir * rancher_speed
 	rancher_body.move_and_slide()
+	rancher_animation()
+
+#a simple function: if velocity is zero, play idle, otherwise, play walk.
+func rancher_animation():
+	if rancher_body.velocity == Vector2.ZERO :
+		rancher_sprite.play("idle")
+	else :
+		rancher_sprite.play("walk")

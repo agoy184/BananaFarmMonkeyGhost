@@ -131,3 +131,7 @@ func random_bananas():
 	tree_status = randi()%3+1 as status
 	water = false
 	grow_bananas()
+
+#simple function to return the status
+func mystatus():
+	return tree_status
