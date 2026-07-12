@@ -10,6 +10,10 @@ signal waxsignal
 @export var max_scale := 15.0
 #defines the baseline scale value, unaffected by flickering
 @export var real_scale := 15.0
+#an additional scale value to temporarily shrink the candle when needed
+var shrink_scale := 1.0
+var shrink_max := 1.0
+var shrink_min := 0.5
 #defines the base energy of the candle
 @export var base_energy := 1.2
 @export var flicker_speed := 8.0
@@ -35,16 +39,22 @@ func flickering(d):
 		target = 1.0 + randf_range(-flicker_amount, flicker_amount)
 	current = lerpf(current, target, 10.0 * d)
 	candle.energy = base_energy * current
-	candle.texture_scale = real_scale * current
-
+	candle.texture_scale = real_scale * current * shrink_scale
 
 func thedark():
-	print ("Oh no, darkness swallowed the rancher!")
 	gmanager.game_over()
 
 func refill():
 	wax = maxwax
 	waxsignal.emit()
+
+func shrink():
+	var tween = create_tween()
+	tween.tween_property(self, "shrink_scale", shrink_min, 0.7)
+	await tween.finished
+func unshrink():
+	var tween = create_tween()
+	tween.tween_property(self, "shrink_scale", shrink_max, 0.7)
 
 func _on_time_manager_min_signal():
 	burning()

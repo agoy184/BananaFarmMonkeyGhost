@@ -22,6 +22,8 @@ extends Node
 signal appear_signal
 
 func _physics_process(_delta):
+	if stunned:
+		return
 	if going_bananas:
 		enrage()
 		pursuit()
@@ -45,6 +47,8 @@ func haunting():
 #as the funcion is NOT to be called in _process, its output is actually stored in a variable
 @export var going_bananas := false
 func is_going_bananas():
+	if stunned:
+		return
 	timerage += 0.1
 	bananarage = inventory.bananas * rage_per_banana
 	rage = timerage + bananarage
@@ -87,7 +91,22 @@ func new_position():
 func _on_time_manager_min_signal():
 	is_going_bananas()
 func _on_time_manager_daysignal():
+	timerage = 0.0
 	rage = 0.0
+
+#Additional functions to banish the monkey with light and to prevent it from respawning immediately.
+func banish():
+	disappear()
+	stun()
+	print("IT BURNS!")
+
+var stuntime := 5.0
+var stunned := false
+func stun():
+	stunned = true
+	await get_tree().create_timer(stuntime).timeout
+	stunned = false
+	appear()
 
 func _ready():
 	is_going_bananas()

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://liyk1knadwc1" path="res://scripts/inventory_manager.gd" id="2_y3xxt"]
 [ext_resource type="Script" uid="uid://b87fkhcjb46bb" path="res://scripts/speed_manager.gd" id="3_lrqlo"]
 [ext_resource type="Script" uid="uid://u6l5byjqapj7" path="res://scripts/candle_manager.gd" id="3_mflgo"]
+[ext_resource type="Script" uid="uid://dmnw5g1g0ojpj" path="res://scripts/flare_manager.gd" id="4_moyyc"]
 [ext_resource type="Script" uid="uid://0rsvigx03yvb" path="res://scripts/upgrade_manager.gd" id="5_agklt"]
 [ext_resource type="Script" uid="uid://c6qkc2smng6vk" path="res://scripts/ending_manager.gd" id="5_jn22m"]
 [ext_resource type="Script" uid="uid://cbj72t6aviakm" path="res://scripts/oldman_movement.gd" id="5_kycxp"]
@@ -35,6 +36,7 @@
 [ext_resource type="Script" uid="uid://dr32c5c0r04sa" path="res://scripts/harvest_manager.gd" id="28_harv"]
 [ext_resource type="Script" uid="uid://dbg3bbs6wvr0u" path="res://scripts/camera_manager.gd" id="29_cam"]
 [ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="30_58tnd"]
+[ext_resource type="Texture2D" uid="uid://cy58k57y1w7jc" path="res://assets/temp/Triangle_lighttexture.png" id="32_f0nuf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3p2p"]
 texture = ExtResource("11_gt4lb")
@@ -301,7 +303,17 @@ script = ExtResource("2_y3xxt")
 [node name="CandleManager" type="Node" parent="GameManager" unique_id=1944167338 node_paths=PackedStringArray("gmanager", "candle")]
 script = ExtResource("3_mflgo")
 gmanager = NodePath("..")
-candle = NodePath("../../GameScene/Rancher_Body/PointLight2D")
+candle = NodePath("../../GameScene/Rancher_Body/PointLight2DRound")
+
+[node name="FlareManager" type="Node2D" parent="GameManager/CandleManager" unique_id=673228885 node_paths=PackedStringArray("candle", "circle", "triangle", "rancher", "area", "monkey", "monkey_area")]
+script = ExtResource("4_moyyc")
+candle = NodePath("..")
+circle = NodePath("../../../GameScene/Rancher_Body/PointLight2DRound")
+triangle = NodePath("../../../GameScene/Rancher_Body/PointLight2DTriangle")
+rancher = NodePath("../../../MovementManager/RancherMovement")
+area = NodePath("../../../GameScene/Rancher_Body/PointLight2DTriangle/flarea")
+monkey = NodePath("../../../MovementManager/MonkeyMovement")
+monkey_area = NodePath("../../../GameScene/Monkey_Body/Monkey_Area")
 
 [node name="ShopManager" type="Node" parent="GameManager" unique_id=1759491929 node_paths=PackedStringArray("gmanager", "inventory", "candle", "time", "panel", "title_label", "summary_label", "refuel_button")]
 script = ExtResource("22_shop")
@@ -459,12 +471,29 @@ position = Vector2(3.333355, 23.333353)
 scale = Vector2(0.60001624, 0.60001624)
 shape = SubResource("RectangleShape2D_ostoq")
 
-[node name="PointLight2D" type="PointLight2D" parent="GameScene/Rancher_Body" unique_id=112568403]
+[node name="PointLight2DRound" type="PointLight2D" parent="GameScene/Rancher_Body" unique_id=112568403]
 scale = Vector2(0.5647833, 0.5647833)
 color = Color(1, 0.81960785, 0.54901963, 1)
 energy = 1.2
 texture = ExtResource("17_ya6yc")
 texture_scale = 15.0
+
+[node name="PointLight2DTriangle" type="PointLight2D" parent="GameScene/Rancher_Body" unique_id=1880875355]
+position = Vector2(3.333333, -16.666656)
+scale = Vector2(0.5647833, 0.5647833)
+color = Color(1, 0.81960785, 0.54901963, 1)
+energy = 0.6
+texture = ExtResource("32_f0nuf")
+offset = Vector2(0, -700)
+texture_scale = 15.0
+
+[node name="flarea" type="Area2D" parent="GameScene/Rancher_Body/PointLight2DTriangle" unique_id=638498141]
+position = Vector2(-17.705906, -224.2748)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameScene/Rancher_Body/PointLight2DTriangle/flarea" unique_id=1289085953]
+polygon = PackedVector2Array(153.45117, 0, -135.74536, 0, -348.2162, -855.7854, 401.33386, -855.7854)
 
 [node name="Monkey_Body" type="CharacterBody2D" parent="GameScene" unique_id=527774286]
 position = Vector2(968, 470)
@@ -982,6 +1011,7 @@ color = Color(0, 0, 0, 1)
 [connection signal="speedsignal" from="TimeManager/SpeedManager" to="TimeManager" method="_on_speed_manager_speedsignal"]
 [connection signal="appear_signal" from="MovementManager/MonkeyMovement" to="CameraManager" method="_on_monkey_movement_appear_signal"]
 [connection signal="caught_signal" from="MovementManager/MonkeyMovement/MonkeyCatches" to="CameraManager" method="_on_monkey_catches_caught_signal"]
+[connection signal="area_entered" from="GameScene/Rancher_Body/PointLight2DTriangle/flarea" to="GameManager/CandleManager/FlareManager" method="_on_flarea_area_entered"]
 [connection signal="body_entered" from="GameScene/Monkey_Body/Monkey_Area" to="MovementManager/MonkeyMovement/MonkeyCatches" method="_on_monkey_area_body_entered"]
 [connection signal="pressed" from="ShopLayer/ShopPanel/ShopBox/RefuelButton" to="GameManager/ShopManager" method="_on_refuel_button_pressed"]
 [connection signal="pressed" from="ShopLayer/ShopPanel/ShopBox/UpgradeButton" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_button_pressed"]
