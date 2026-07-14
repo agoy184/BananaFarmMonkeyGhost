@@ -7,6 +7,7 @@ extends Node
 @export var win_panel : Control
 @export var end_panel : Control
 @export var endui : Node
+@export var endmanager : Node
 
 #false while the shop is deciding what happens next, so E can't end the night twice
 var night_active := true
@@ -43,7 +44,10 @@ func _on_menu_button_pressed():
 
 func _on_end_button_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	if endmanager.checkending():
+		get_tree().change_scene_to_file("res://scenes/win.tscn")
+	else :
+		get_tree().change_scene_to_file("res://scenes/loss.tscn")
 
 func new_day():
 	pass

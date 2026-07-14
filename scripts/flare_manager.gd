@@ -30,13 +30,16 @@ func _input(event):
 		rancher.locked = false
 		candle.unshrink()
 
+var flareon := false
 func emit_flare():
 	target = get_global_mouse_position()
 	triangle.enabled = true
+	flareon = true
 	triangle.look_at(target)
 	#I should have put the triangle in horizontal, so I have to rotate it manually
 	triangle.rotation += deg_to_rad(90)
 	await get_tree().create_timer(0.5).timeout
+	flareon = false
 	triangle.enabled = false
 
 @export var area : Area2D
@@ -44,5 +47,5 @@ func emit_flare():
 @export var monkey_area : Area2D
 
 func _on_flarea_area_entered(area: Area2D):
-	if area == monkey_area:
+	if area == monkey_area and flareon == true:
 		monkey.banish()

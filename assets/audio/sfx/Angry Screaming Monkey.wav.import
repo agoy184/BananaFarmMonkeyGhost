@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6fn2alkrsc0q"
+path="res://.godot/imported/Angry Screaming Monkey.wav-4d139c249d0df357b60c7d133b9d104c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Angry Screaming Monkey.wav"
+dest_files=["res://.godot/imported/Angry Screaming Monkey.wav-4d139c249d0df357b60c7d133b9d104c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

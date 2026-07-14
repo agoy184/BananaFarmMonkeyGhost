@@ -29,10 +29,13 @@ func open_shop():
 	update_panel()
 	panel.visible = true
 
+@export var chaching : AudioStreamPlayer
 #turns the carried bananas into money
 func sell_bananas():
 	last_sold = inventory.bananas
 	last_earned = last_sold * price_per_banana
+	if last_sold != 0:
+		chaching.play()
 	money += last_earned
 	inventory.empty_inventory()
 	moneysignal.emit()

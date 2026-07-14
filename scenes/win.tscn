@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dpext6dw2mef7"]
+
+[ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="1_r4oei"]
+[ext_resource type="Script" uid="uid://cln4x08f8ebj5" path="res://scripts/UI/ending_mockup/winbutton.gd" id="2_826fv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_826fv"]
+content_margin_left = 24.0
+content_margin_top = 20.0
+content_margin_right = 24.0
+content_margin_bottom = 20.0
+bg_color = Color(0.06, 0.05, 0.09, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.42, 0.2, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iiocm"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+bg_color = Color(0.07, 0.06, 0.1, 0.85)
+border_width_left = 2
+border_color = Color(0.55, 0.42, 0.2, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxbqr"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+bg_color = Color(0.04, 0.03, 0.06, 0.95)
+border_width_left = 2
+border_color = Color(0.55, 0.42, 0.2, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tylv2"]
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+bg_color = Color(0.17, 0.12, 0.07, 0.9)
+border_width_left = 2
+border_color = Color(1, 0.82, 0.45, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="root" type="Node2D" unique_id=1925100225]
+
+[node name="WinPanel" type="PanelContainer" parent="." unique_id=27028317]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 3.0
+offset_right = 1150.0
+offset_bottom = 644.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_826fv")
+
+[node name="WinBox" type="VBoxContainer" parent="WinPanel" unique_id=1698627193]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="WinTitle" type="Label" parent="WinPanel/WinBox" unique_id=1905629931]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
+theme_override_fonts/font = ExtResource("1_r4oei")
+theme_override_font_sizes/font_size = 34
+text = "You are finally free!"
+horizontal_alignment = 1
+
+[node name="WinText" type="Label" parent="WinPanel/WinBox" unique_id=173324376]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/font = ExtResource("1_r4oei")
+theme_override_font_sizes/font_size = 34
+text = "Victory at last: with the profit form the banana sales you are finally able to pay your debt.
+
+You don't quite know what you will do with your newfound freedom, but it  won't include monkeys.
+You pity the next owner of the plantation, but it's not your problem anymore."
+horizontal_alignment = 1
+
+[node name="MenuButton" type="Button" parent="WinPanel/WinBox" unique_id=1033767955]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
+theme_override_fonts/font = ExtResource("1_r4oei")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_iiocm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yxbqr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tylv2")
+text = "Back to menu!"
+script = ExtResource("2_826fv")
+
+[connection signal="pressed" from="WinPanel/WinBox/MenuButton" to="WinPanel/WinBox/MenuButton" method="_on_pressed"]

@@ -29,3 +29,10 @@ func get_plants():
 			end_ailing += 1
 		elif s == 0:
 			end_withered += 1
+
+func checkending():
+	if end_money >= 100:
+		print("returning true")
+		return true
+	else :
+		return false

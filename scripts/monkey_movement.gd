@@ -17,6 +17,7 @@ extends Node
 
 @export var inventory : Node
 @export var candle : Node
+@export var sprite : AnimatedSprite2D
 
 #lets the camera (or anyone else) flinch when the monkey shows up
 signal appear_signal
@@ -30,11 +31,17 @@ func _physics_process(_delta):
 	else:
 		haunting()
 
+@export var farmer_breath : AudioStreamPlayer
+#audio of the farmer breathing when pursued
+@export var move_audio : AudioStreamPlayer
+
 #the pursuit function should be called when the monkey decides to pursue the rancher
 func pursuit():
 	var speed = rage_speed
 	var dir = rancher_body.global_position - monkey_body.global_position
 	dir = dir.normalized()
+	move_audio.spooky()
+	farmer_breath.breathe()
 	monkey_body.velocity = dir * speed
 	monkey_body.move_and_slide()
 
@@ -43,7 +50,6 @@ func haunting():
 	pass
 
 #the going bananas function should determine whether the monkey will go for bananas or for the rancher
-#as bananas are not currently implemented, it always return false, thus the monkey always pursues
 #as the funcion is NOT to be called in _process, its output is actually stored in a variable
 @export var going_bananas := false
 func is_going_bananas():
@@ -62,12 +68,21 @@ func is_going_bananas():
 			appear()
 			going_bananas = true
 
+@export var irritated_audio : AudioStreamPlayer
+
 #chenage how it works, now monkey is twice at fast at speed 100
 func enrage():
+	if rage >= 50.0:
+		irritated_audio.grr()
+		sprite.bouncy()
+	else:
+		sprite.spooky()
 	rage_speed = monkey_speed * (1.00 + rage/100.0)
 
+@export var appear_audio : AudioStreamPlayer
 #the monkey appears when it is angry enough
 func appear():
+	appear_audio.play()
 	monkey_body.visible = true
 	monkey_body.process_mode = Node.PROCESS_MODE_INHERIT
 	new_position()
@@ -95,10 +110,12 @@ func _on_time_manager_daysignal():
 	rage = 0.0
 
 #Additional functions to banish the monkey with light and to prevent it from respawning immediately.
+@export var mad_audio : AudioStreamPlayer
 func banish():
-	disappear()
+	mad_audio.play()
 	stun()
-	print("IT BURNS!")
+	await sprite.screaming()
+	disappear()
 
 var stuntime := 5.0
 var stunned := false

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxtjrgxngmfv3"
+path="res://.godot/imported/Dirt Steps (Slow).wav-0548478adab22a75072331726e264717.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Dirt Steps (Slow).wav"
+dest_files=["res://.godot/imported/Dirt Steps (Slow).wav-0548478adab22a75072331726e264717.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6dmul5tcropb"
+path="res://.godot/imported/Night Ambiance (Master).ogg-ba475f853317577b4d86c4f5da0df3be.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Night Ambiance (Master).ogg"
+dest_files=["res://.godot/imported/Night Ambiance (Master).ogg-ba475f853317577b4d86c4f5da0df3be.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

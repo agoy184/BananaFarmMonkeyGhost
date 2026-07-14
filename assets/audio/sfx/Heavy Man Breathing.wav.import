@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6mjjwrf6ee7h"
+path="res://.godot/imported/Heavy Man Breathing.wav-7b35a93a95aebffd84489e5a1fc87a0a.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Heavy Man Breathing.wav"
+dest_files=["res://.godot/imported/Heavy Man Breathing.wav-7b35a93a95aebffd84489e5a1fc87a0a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

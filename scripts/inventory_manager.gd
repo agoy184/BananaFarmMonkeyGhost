@@ -34,6 +34,3 @@ func empty_inventory():
 func str_inventory():
 	var invstr = "Bananas: " + str(bananas)
 	return invstr
-
-func debug_inventory():
-	print("The rancher has " + str(bananas) + " bananas.")

@@ -1,5 +1,7 @@
 extends Node
 #the stem-cutting minigame: hold E to saw the bunch loose, ease off before the stem snaps
+@export var banana_audio : AudioStreamPlayer
+
 
 @export var movement : Node
 @export var inventory : Node
@@ -84,6 +86,7 @@ func finish():
 		floats.popup(plant.global_position, "+" + str(harvest) + "!", Color(1, 0.95, 0.15))
 	else:
 		floats.popup(plant.global_position, "+" + str(harvest))
+	banana_audio.play()
 	inventory.add_bananas(harvest)
 	harvested_signal.emit(perfect)
 	stop()
