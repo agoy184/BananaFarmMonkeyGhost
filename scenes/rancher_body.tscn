@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://c4jaohnyl0sji"]
+
+[ext_resource type="Texture2D" uid="uid://b35fk1715hwvx" path="res://assets/farmer_sprite/farmeIdle3.png" id="1_7631k"]
+[ext_resource type="Texture2D" uid="uid://dj321l7f650kp" path="res://assets/farmer_sprite/farmerHopWalk.png" id="2_wfykp"]
+[ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="3_k6hne"]
+[ext_resource type="Texture2D" uid="uid://cy58k57y1w7jc" path="res://assets/temp/Triangle_lighttexture.png" id="4_nvp2v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yue3"]
+atlas = ExtResource("1_7631k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agklt"]
+atlas = ExtResource("1_7631k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7ldt"]
+atlas = ExtResource("1_7631k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moyyc"]
+atlas = ExtResource("1_7631k")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0nuf"]
+atlas = ExtResource("1_7631k")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixqlv"]
+atlas = ExtResource("1_7631k")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6fp0"]
+atlas = ExtResource("1_7631k")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55oir"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltgni"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg167"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e7ao"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkeu2"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33j8a"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eirlg"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5su3"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6i2r"]
+atlas = ExtResource("2_wfykp")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ostoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yue3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agklt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7ldt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moyyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0nuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixqlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6fp0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55oir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltgni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg167")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e7ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkeu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33j8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eirlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5su3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6i2r")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ostoq"]
+size = Vector2(153.33203, 222.7752)
+
+[node name="Rancher_Body" type="CharacterBody2D" unique_id=548866239]
+scale = Vector2(0.3, 0.3)
+collision_mask = 15
+
+[node name="Rancher_Sprite" type="AnimatedSprite2D" parent="." unique_id=882772274]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_ostoq")
+animation = &"walk"
+
+[node name="Rancher_Collider" type="CollisionShape2D" parent="." unique_id=62482684]
+position = Vector2(3.333355, 23.333353)
+scale = Vector2(0.60001624, 0.60001624)
+shape = SubResource("RectangleShape2D_ostoq")
+
+[node name="PointLight2DRound" type="PointLight2D" parent="." unique_id=1310958845]
+scale = Vector2(0.5647833, 0.5647833)
+color = Color(1, 0.81960785, 0.54901963, 1)
+energy = 1.2
+texture = ExtResource("3_k6hne")
+texture_scale = 15.0
+
+[node name="PointLight2DTriangle" type="PointLight2D" parent="." unique_id=982160913]
+position = Vector2(3.333332, 10.000015)
+scale = Vector2(0.5647833, 0.5647833)
+color = Color(1, 0.81960785, 0.54901963, 1)
+energy = 0.6
+texture = ExtResource("4_nvp2v")
+offset = Vector2(0, -500)
+texture_scale = 15.0
+
+[node name="flarea" type="Area2D" parent="PointLight2DTriangle" unique_id=426108721]
+position = Vector2(-17.705906, -224.2748)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PointLight2DTriangle/flarea" unique_id=104291718]
+position = Vector2(0, 182.96101)
+polygon = PackedVector2Array(206.56885, 47.21582, -153.45117, 35.411865, -371.8241, -885.29517, 424.94165, -885.29517)

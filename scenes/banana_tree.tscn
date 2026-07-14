@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://ctxuo3k5m7pqu"]
 
-[ext_resource type="Script" uid="uid://bvm0kgc4vcsod" path="res://scripts/banana_prototype.gd" id="1_lbdmo"]
-[ext_resource type="Script" uid="uid://cvgokulqq8c8h" path="res://scripts/banana_graphics.gd" id="2_26hu8"]
+[ext_resource type="Script" uid="uid://bvm0kgc4vcsod" path="res://scripts/world/banana_prototype.gd" id="1_lbdmo"]
+[ext_resource type="Script" uid="uid://cvgokulqq8c8h" path="res://scripts/fx/banana_graphics.gd" id="2_26hu8"]
 [ext_resource type="Texture2D" uid="uid://lkplytbhni13" path="res://assets/Banana_Trees.png" id="3_26hu8"]
-[ext_resource type="Script" uid="uid://c2r67yg0rcya2" path="res://scripts/banana_area.gd" id="4_26hu8"]
+[ext_resource type="Script" uid="uid://c2r67yg0rcya2" path="res://scripts/world/banana_area.gd" id="4_26hu8"]
 [ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="5_light"]
-[ext_resource type="Script" uid="uid://2fvweitxmk2i" path="res://scripts/tree_juice.gd" id="6_juice"]
+[ext_resource type="Script" uid="uid://2fvweitxmk2i" path="res://scripts/fx/tree_juice.gd" id="6_juice"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnuoh"]
 atlas = ExtResource("3_26hu8")
@@ -118,11 +118,12 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_burst")
 
-[node name="TreeJuice" type="Node2D" parent="." unique_id=423805313 node_paths=PackedStringArray("glow", "sprite", "burst")]
+[node name="TreeJuice" type="Node2D" parent="." unique_id=423805313 node_paths=PackedStringArray("glow", "sprite", "burst", "plant")]
 script = ExtResource("6_juice")
 glow = NodePath("../BananaBody/TreeGlow")
 sprite = NodePath("../BananaBody/BananaSprite")
 burst = NodePath("../BananaBody/HarvestBurst")
+plant = NodePath("..")
 
 [connection signal="harvest_signal" from="." to="TreeJuice" method="_on_banana_tree_harvest_signal"]
 [connection signal="snap_signal" from="." to="TreeJuice" method="_on_banana_tree_snap_signal"]

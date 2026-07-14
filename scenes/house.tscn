@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://n20016r36ify"]
 
-[ext_resource type="Script" uid="uid://dagpbjti5w1gs" path="res://scripts/house.gd" id="1_house"]
+[ext_resource type="Script" uid="uid://dagpbjti5w1gs" path="res://scripts/world/house.gd" id="1_house"]
 [ext_resource type="Texture2D" uid="uid://dpjrak684qal0" path="res://assets/Sprite-House-New.png" id="2_se78b"]
-[ext_resource type="Script" uid="uid://bscnflkmvc4qy" path="res://scripts/house_area.gd" id="3_harea"]
+[ext_resource type="Script" uid="uid://bscnflkmvc4qy" path="res://scripts/world/house_area.gd" id="3_harea"]
 [ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="4_3bgk5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_house"]

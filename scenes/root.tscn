@@ -1,60 +1,61 @@
 [gd_scene format=4 uid="uid://ctunqc8on58do"]
 
-[ext_resource type="Script" uid="uid://0kjxekstauo4" path="res://scripts/game_manager.gd" id="1_twpsu"]
-[ext_resource type="Script" uid="uid://cusy6gdd87cpu" path="res://scripts/time_manager.gd" id="2_lrqlo"]
-[ext_resource type="Script" uid="uid://dcfisr4vgcl7s" path="res://scripts/banana_manager.gd" id="2_xsp7o"]
-[ext_resource type="Script" uid="uid://liyk1knadwc1" path="res://scripts/inventory_manager.gd" id="2_y3xxt"]
-[ext_resource type="Script" uid="uid://b87fkhcjb46bb" path="res://scripts/speed_manager.gd" id="3_lrqlo"]
-[ext_resource type="Script" uid="uid://u6l5byjqapj7" path="res://scripts/candle_manager.gd" id="3_mflgo"]
-[ext_resource type="Script" uid="uid://dmnw5g1g0ojpj" path="res://scripts/flare_manager.gd" id="4_moyyc"]
-[ext_resource type="Script" uid="uid://0rsvigx03yvb" path="res://scripts/upgrade_manager.gd" id="5_agklt"]
-[ext_resource type="Script" uid="uid://c6qkc2smng6vk" path="res://scripts/ending_manager.gd" id="5_jn22m"]
-[ext_resource type="Script" uid="uid://cbj72t6aviakm" path="res://scripts/oldman_movement.gd" id="5_kycxp"]
-[ext_resource type="Script" uid="uid://c0oy2b2cc65" path="res://scripts/monkey_movement.gd" id="6_5sfjl"]
-[ext_resource type="Script" uid="uid://bp1mig0vrcuxk" path="res://scripts/monkey_catches.gd" id="7_3hfy5"]
+[ext_resource type="Script" uid="uid://0kjxekstauo4" path="res://scripts/managers/game_manager.gd" id="1_twpsu"]
+[ext_resource type="Script" uid="uid://cusy6gdd87cpu" path="res://scripts/managers/time_manager.gd" id="2_lrqlo"]
+[ext_resource type="Script" uid="uid://dcfisr4vgcl7s" path="res://scripts/managers/banana_manager.gd" id="2_xsp7o"]
+[ext_resource type="Script" uid="uid://liyk1knadwc1" path="res://scripts/managers/inventory_manager.gd" id="2_y3xxt"]
+[ext_resource type="Script" uid="uid://b87fkhcjb46bb" path="res://scripts/managers/speed_manager.gd" id="3_lrqlo"]
+[ext_resource type="Script" uid="uid://u6l5byjqapj7" path="res://scripts/managers/candle_manager.gd" id="3_mflgo"]
+[ext_resource type="Script" uid="uid://dmnw5g1g0ojpj" path="res://scripts/world/flare_manager.gd" id="4_moyyc"]
+[ext_resource type="Script" uid="uid://0rsvigx03yvb" path="res://scripts/managers/upgrade_manager.gd" id="5_agklt"]
+[ext_resource type="Script" uid="uid://c6qkc2smng6vk" path="res://scripts/managers/ending_manager.gd" id="5_jn22m"]
+[ext_resource type="Script" uid="uid://cbj72t6aviakm" path="res://scripts/managers/oldman_movement.gd" id="5_kycxp"]
+[ext_resource type="Script" uid="uid://c0oy2b2cc65" path="res://scripts/managers/monkey_movement.gd" id="6_5sfjl"]
+[ext_resource type="Script" uid="uid://bp1mig0vrcuxk" path="res://scripts/managers/monkey_catches.gd" id="7_3hfy5"]
 [ext_resource type="AudioStream" uid="uid://6dmul5tcropb" path="res://assets/audio/sfx/Night Ambiance (Master).ogg" id="9_ixqlv"]
-[ext_resource type="Script" uid="uid://tgk3ke0cl38q" path="res://scripts/UI/clock_ui.gd" id="9_xsp7o"]
+[ext_resource type="Script" uid="uid://tgk3ke0cl38q" path="res://scripts/ui/clock_ui.gd" id="9_xsp7o"]
 [ext_resource type="PackedScene" uid="uid://ctxuo3k5m7pqu" path="res://scenes/banana_tree.tscn" id="10_7pvxh"]
 [ext_resource type="AudioStream" uid="uid://lxdarg51821t" path="res://assets/audio/sfx/Reaping Bananas.wav" id="10_f0nuf"]
-[ext_resource type="Script" uid="uid://cg6g4itv1qfhe" path="res://scripts/UI/inventory_ui.gd" id="10_l5cgh"]
-[ext_resource type="Script" uid="uid://badiuwwkn01mm" path="res://scripts/night_ambience.gd" id="10_p6fp0"]
+[ext_resource type="Script" uid="uid://cg6g4itv1qfhe" path="res://scripts/ui/inventory_ui.gd" id="10_l5cgh"]
+[ext_resource type="Script" uid="uid://badiuwwkn01mm" path="res://scripts/audio/night_ambience.gd" id="10_p6fp0"]
 [ext_resource type="AudioStream" uid="uid://gaa7d7dh0jme" path="res://assets/audio/sfx/Yell.wav" id="11_55oir"]
 [ext_resource type="Texture2D" uid="uid://ckcq67ndpnd8x" path="res://assets/tiles/Sprite-Ground where rock and a leaflet.png" id="11_gt4lb"]
 [ext_resource type="Texture2D" uid="uid://dythmi2e5leth" path="res://assets/tiles/Sprite-The ground where no plants and no walk for.png" id="12_ya6yc"]
 [ext_resource type="AudioStream" uid="uid://6mjjwrf6ee7h" path="res://assets/audio/sfx/Heavy Man Breathing.wav" id="12_yg167"]
-[ext_resource type="Script" uid="uid://tqop8qytthjk" path="res://scripts/farmer_breath.gd" id="13_8e7ao"]
+[ext_resource type="Script" uid="uid://tqop8qytthjk" path="res://scripts/audio/farmer_breath.gd" id="13_8e7ao"]
 [ext_resource type="Texture2D" uid="uid://dllwh3dwdyoee" path="res://assets/tiles/Sprite-The ground where walk.png" id="13_mflgo"]
 [ext_resource type="Texture2D" uid="uid://cc8036cnvomju" path="res://assets/tiles/Sprite-Ground.png" id="14_34frw"]
 [ext_resource type="AudioStream" uid="uid://ljbj53raxkvi" path="res://assets/audio/sfx/Creepy Sound When Monkey Appears.wav" id="14_c6i2r"]
 [ext_resource type="Texture2D" uid="uid://coh61alsim2xp" path="res://assets/tiles/Sprite-Ground where little rock and a a lot leaflet.png" id="15_8ui5n"]
 [ext_resource type="AudioStream" uid="uid://ce3f7sgg5u3ao" path="res://assets/audio/sfx/Irritated Monkey.wav" id="15_x8vod"]
-[ext_resource type="Script" uid="uid://bibs7ce7igplv" path="res://scripts/monkey_irritated.gd" id="16_0p85t"]
+[ext_resource type="Script" uid="uid://bibs7ce7igplv" path="res://scripts/audio/monkey_irritated.gd" id="16_0p85t"]
 [ext_resource type="AudioStream" uid="uid://dvn1emspjb250" path="res://assets/audio/sfx/Whispy Noise When Ghost Moves.ogg" id="17_742t5"]
 [ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="17_ya6yc"]
-[ext_resource type="Script" uid="uid://dbom1hmxas4wf" path="res://scripts/monkey_move.gd" id="18_m2r11"]
-[ext_resource type="Script" uid="uid://b7pm6jfstulgh" path="res://scripts/home_manager.gd" id="19_home"]
+[ext_resource type="Script" uid="uid://dbom1hmxas4wf" path="res://scripts/audio/monkey_move.gd" id="18_m2r11"]
+[ext_resource type="Script" uid="uid://b7pm6jfstulgh" path="res://scripts/managers/home_manager.gd" id="19_home"]
 [ext_resource type="AudioStream" uid="uid://c6fn2alkrsc0q" path="res://assets/audio/sfx/Angry Screaming Monkey.wav" id="19_t8cul"]
 [ext_resource type="AudioStream" uid="uid://b5sb52e3k0w4m" path="res://assets/audio/sfx/Cha Ching.wav" id="20_x8vod"]
-[ext_resource type="Script" uid="uid://fbugiewydnuu" path="res://scripts/UI/end_ui.gd" id="21_8yue3"]
+[ext_resource type="Script" uid="uid://fbugiewydnuu" path="res://scripts/ui/end_ui.gd" id="21_8yue3"]
 [ext_resource type="AudioStream" uid="uid://bxvj1rhxonq27" path="res://assets/audio/sfx/Candle Running Down.wav" id="21_h44qa"]
-[ext_resource type="Script" uid="uid://2mqdhmo10v4c" path="res://scripts/UI/warn_ui.gd" id="21_warn"]
-[ext_resource type="Script" uid="uid://baoo6fkp37r6" path="res://scripts/shop_manager.gd" id="22_shop"]
-[ext_resource type="Script" uid="uid://ce3xb5t8gq2ij" path="res://scripts/UI/money_ui.gd" id="23_money"]
-[ext_resource type="Script" uid="uid://dbosutpua0sy5" path="res://scripts/UI/wax_bar_ui.gd" id="24_waxbar"]
+[ext_resource type="Script" uid="uid://2mqdhmo10v4c" path="res://scripts/ui/warn_ui.gd" id="21_warn"]
+[ext_resource type="Script" uid="uid://baoo6fkp37r6" path="res://scripts/managers/shop_manager.gd" id="22_shop"]
+[ext_resource type="Script" uid="uid://ce3xb5t8gq2ij" path="res://scripts/ui/money_ui.gd" id="23_money"]
 [ext_resource type="Texture2D" uid="uid://b35fk1715hwvx" path="res://assets/farmer_sprite/farmeIdle3.png" id="25_e6w1q"]
 [ext_resource type="Script" uid="uid://u7okko01e152" path="res://scripts/fx/float_text_manager.gd" id="25_float"]
-[ext_resource type="Script" uid="uid://d0xgqdama067b" path="res://scripts/UI/hint_ui.gd" id="26_hint"]
+[ext_resource type="Script" uid="uid://d0xgqdama067b" path="res://scripts/ui/hint_ui.gd" id="26_hint"]
 [ext_resource type="Texture2D" uid="uid://dj321l7f650kp" path="res://assets/farmer_sprite/farmerHopWalk.png" id="26_jn22m"]
 [ext_resource type="PackedScene" uid="uid://n20016r36ify" path="res://scenes/house.tscn" id="27_ihmk7"]
-[ext_resource type="Script" uid="uid://dr32c5c0r04sa" path="res://scripts/harvest_manager.gd" id="28_harv"]
-[ext_resource type="Script" uid="uid://dbg3bbs6wvr0u" path="res://scripts/camera_manager.gd" id="29_cam"]
+[ext_resource type="Script" uid="uid://dr32c5c0r04sa" path="res://scripts/managers/harvest_manager.gd" id="28_harv"]
+[ext_resource type="Script" uid="uid://dbg3bbs6wvr0u" path="res://scripts/managers/camera_manager.gd" id="29_cam"]
 [ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="30_58tnd"]
 [ext_resource type="Texture2D" uid="uid://cy58k57y1w7jc" path="res://assets/temp/Triangle_lighttexture.png" id="32_f0nuf"]
-[ext_resource type="Script" uid="uid://dsopbf2k44twx" path="res://scripts/UI/candle_ui.gd" id="38_02u83"]
+[ext_resource type="Script" uid="uid://0nao4wmp8jfl" path="res://scripts/managers/atmosphere_manager.gd" id="33_atmos"]
+[ext_resource type="Shader" uid="uid://cpwv2iipcxr2b" path="res://shaders/tv_static.gdshader" id="34_static"]
+[ext_resource type="Script" uid="uid://dsopbf2k44twx" path="res://scripts/ui/candle_ui.gd" id="38_02u83"]
 [ext_resource type="Texture2D" uid="uid://bl0e361156ymj" path="res://assets/monkey_sprite/bouncyMonkeyGhost.png" id="46_742t5"]
 [ext_resource type="Texture2D" uid="uid://brfep1xl85aj1" path="res://assets/monkey_sprite/idleMonkeyGhost.png" id="47_m2r11"]
 [ext_resource type="Texture2D" uid="uid://dratfibsc1ax3" path="res://assets/monkey_sprite/beatChestMonkeyGhost.png" id="48_t8cul"]
-[ext_resource type="Script" uid="uid://0jflgwex7si6" path="res://scripts/monkey_sprite.gd" id="49_m2r11"]
+[ext_resource type="Script" uid="uid://0jflgwex7si6" path="res://scripts/fx/monkey_sprite.gd" id="49_m2r11"]
 [ext_resource type="Texture2D" uid="uid://b6vgq2cm34fyt" path="res://assets/candle_sprite/Sprite-0% Candle.png" id="55_neh7f"]
 [ext_resource type="Texture2D" uid="uid://bjl5fn0dru3lg" path="res://assets/candle_sprite/Sprite-100% or less Candle.png" id="56_gimr4"]
 [ext_resource type="Texture2D" uid="uid://kv43wuop5ob4" path="res://assets/candle_sprite/Sprite-25% or less candle.png" id="57_jll34"]
@@ -561,19 +562,13 @@ height = 276.66675
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajtct"]
 size = Vector2(1233, 27)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
-bg_color = Color(0.04, 0.03, 0.06, 0.9)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_fill"]
-bg_color = Color(1, 0.75, 0.3, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_static"]
+shader = ExtResource("34_static")
+shader_parameter/update_interval = 0.163
+shader_parameter/static_granularity = 0.005
+shader_parameter/edge_blur = 0.5
+shader_parameter/border_size = 0.45
+shader_parameter/static_alpha = 0.08
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pkchf"]
 atlas = ExtResource("55_neh7f")
@@ -1205,6 +1200,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.04, 0.03, 0.06, 0.9)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_cut"]
 bg_color = Color(0.45, 0.85, 0.35, 1)
 corner_radius_top_left = 3
@@ -1218,61 +1220,6 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
-content_margin_left = 24.0
-content_margin_top = 20.0
-content_margin_right = 24.0
-content_margin_bottom = 20.0
-bg_color = Color(0.06, 0.05, 0.09, 0.95)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.55, 0.42, 0.2, 0.7)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
-content_margin_left = 18.0
-content_margin_top = 10.0
-content_margin_right = 18.0
-content_margin_bottom = 10.0
-bg_color = Color(0.07, 0.06, 0.1, 0.85)
-border_width_left = 2
-border_color = Color(0.55, 0.42, 0.2, 0.6)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-content_margin_left = 18.0
-content_margin_top = 10.0
-content_margin_right = 18.0
-content_margin_bottom = 10.0
-bg_color = Color(0.04, 0.03, 0.06, 0.95)
-border_width_left = 2
-border_color = Color(0.55, 0.42, 0.2, 0.6)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-content_margin_left = 18.0
-content_margin_top = 10.0
-content_margin_right = 18.0
-content_margin_bottom = 10.0
-bg_color = Color(0.17, 0.12, 0.07, 0.9)
-border_width_left = 2
-border_color = Color(1, 0.82, 0.45, 0.9)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
 
 [node name="root" type="Node2D" unique_id=689511176]
 
@@ -1432,6 +1379,12 @@ area = NodePath("../GameScene/House/HouseArea")
 gmanager = NodePath("../GameManager")
 harvest = NodePath("../HarvestManager")
 
+[node name="AtmosphereManager" type="Node" parent="." unique_id=1283406062 node_paths=PackedStringArray("overlay", "candle", "monkey")]
+script = ExtResource("33_atmos")
+overlay = NodePath("../AtmosphereLayer/StaticOverlay")
+candle = NodePath("../GameManager/CandleManager")
+monkey = NodePath("../MovementManager/MonkeyMovement")
+
 [node name="UIManager" type="Node" parent="." unique_id=307382323]
 
 [node name="ClockUI" type="Node" parent="UIManager" unique_id=107225769 node_paths=PackedStringArray("label", "manager")]
@@ -1454,11 +1407,6 @@ script = ExtResource("23_money")
 label = NodePath("../../UIControl/CanvasLayer/HUDBox/MoneyLabel")
 manager = NodePath("../../GameManager/ShopManager")
 
-[node name="WaxBarUI" type="Node" parent="UIManager" unique_id=1197701337 node_paths=PackedStringArray("bar", "manager")]
-script = ExtResource("24_waxbar")
-bar = NodePath("../../UIControl/CanvasLayer/HUDBox/WaxBar")
-manager = NodePath("../../GameManager/CandleManager")
-
 [node name="HintUI" type="Node" parent="UIManager" unique_id=156361674 node_paths=PackedStringArray("label", "plants", "house_area", "harvest")]
 script = ExtResource("26_hint")
 label = NodePath("../../UIControl/CanvasLayer/HintLabel")
@@ -1478,7 +1426,7 @@ endmanager = NodePath("../../GameManager/EndingManager")
 [node name="CandleUI" type="Node" parent="UIManager" unique_id=1445185083 node_paths=PackedStringArray("candle", "sprite", "audio")]
 script = ExtResource("38_02u83")
 candle = NodePath("../../GameManager/CandleManager")
-sprite = NodePath("../../UIControl/CanvasLayer/CandleSprite")
+sprite = NodePath("../../UIControl/CanvasLayer/CandleAnchor/CandleSprite")
 audio = NodePath("../../GameManager/Audio/CandleSound")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=1764046109]
@@ -1648,6 +1596,17 @@ collision_layer = 8
 position = Vector2(570.5, 23.5)
 shape = SubResource("RectangleShape2D_ajtct")
 
+[node name="AtmosphereLayer" type="CanvasLayer" parent="." unique_id=5752937]
+
+[node name="StaticOverlay" type="ColorRect" parent="AtmosphereLayer" unique_id=1115486084]
+material = SubResource("ShaderMaterial_static")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="UIControl" type="Control" parent="." unique_id=1729279490]
 layout_mode = 3
 anchors_preset = 0
@@ -1655,6 +1614,7 @@ offset_right = 1167.0
 offset_bottom = 643.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UIControl" unique_id=968453340]
+layer = 2
 
 [node name="HUDBox" type="VBoxContainer" parent="UIControl/CanvasLayer" unique_id=1626733291]
 offset_left = 16.0
@@ -1674,7 +1634,7 @@ text = "Text here"
 
 [node name="MoneyLabel" type="Label" parent="UIControl/CanvasLayer/HUDBox" unique_id=1079491538]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_color = Color(0.494, 0.82, 0.478, 1)
 theme_override_colors/font_outline_color = Color(0.04, 0.03, 0.06, 0.85)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("30_58tnd")
@@ -1689,14 +1649,6 @@ theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 28
 text = "Text here"
-
-[node name="WaxBar" type="ProgressBar" parent="UIControl/CanvasLayer/HUDBox" unique_id=1509644915]
-custom_minimum_size = Vector2(150, 14)
-layout_mode = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
-theme_override_styles/fill = SubResource("StyleBoxFlat_bar_fill")
-value = 100.0
-show_percentage = false
 
 [node name="WarnLabel" type="Label" parent="UIControl/CanvasLayer" unique_id=346040313]
 offset_left = 380.0
@@ -1728,8 +1680,24 @@ theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 
-[node name="CandleSprite" type="AnimatedSprite2D" parent="UIControl/CanvasLayer" unique_id=1666657290]
-position = Vector2(299, 37)
+[node name="CandleAnchor" type="Control" parent="UIControl/CanvasLayer" unique_id=1300457121]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_right = 7.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.2400098, 1)
+mouse_filter = 2
+
+[node name="CandleSprite" type="AnimatedSprite2D" parent="UIControl/CanvasLayer/CandleAnchor" unique_id=1666657290]
+texture_filter = 1
+position = Vector2(-48.297943, -75.797935)
+scale = Vector2(1.9936857, 1.9936857)
 sprite_frames = SubResource("SpriteFrames_loq3h")
 animation = &"100"
 
@@ -1801,7 +1769,6 @@ offset_right = 220.0
 offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="ShopBox" type="VBoxContainer" parent="ShopLayer/ShopPanel" unique_id=1964260113]
 layout_mode = 2
@@ -1815,48 +1782,30 @@ theme_override_font_sizes/font_size = 35
 text = "Night 1 survived"
 horizontal_alignment = 1
 
-[node name="SummaryLabel" type="Label" parent="ShopLayer/ShopPanel/ShopBox" unique_id=473015459]
+[node name="SummaryLabel" type="RichTextLabel" parent="ShopLayer/ShopPanel/ShopBox" unique_id=473015459]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
-theme_override_font_sizes/font_size = 35
-text = "Sold 0 bananas for $0"
-horizontal_alignment = 1
+theme_override_colors/default_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/normal_font = ExtResource("30_58tnd")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]Sold 0 bananas for $0[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="RefuelButton" type="Button" parent="ShopLayer/ShopPanel/ShopBox" unique_id=50604300]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Refuel candle"
 
 [node name="UpgradeButton" type="Button" parent="ShopLayer/ShopPanel/ShopBox" unique_id=130145726]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "View upgrades"
 
 [node name="SleepButton" type="Button" parent="ShopLayer/ShopPanel/ShopBox" unique_id=1719805001]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Sleep until nightfall"
 
 [node name="UpgradePanel" type="PanelContainer" parent="ShopLayer" unique_id=1016735308]
@@ -1872,7 +1821,6 @@ offset_right = 220.0
 offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="ShopBox" type="VBoxContainer" parent="ShopLayer/UpgradePanel" unique_id=2016808098]
 layout_mode = 2
@@ -1886,37 +1834,26 @@ theme_override_font_sizes/font_size = 35
 text = "Available Upgrade"
 horizontal_alignment = 1
 
-[node name="Upgrade 1" type="Label" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=1868535714]
+[node name="Upgrade 1" type="RichTextLabel" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=1868535714]
 layout_mode = 2
 mouse_filter = 0
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
-theme_override_font_sizes/font_size = 35
-text = "Upgrade 1"
-horizontal_alignment = 1
+theme_override_colors/default_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/normal_font = ExtResource("30_58tnd")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]Upgrade 1[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Button 1" type="Button" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=246767947]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Buy!"
 
 [node name="BackButton" type="Button" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=1651876578]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Go back"
 
 [node name="WinPanel" type="PanelContainer" parent="ShopLayer" unique_id=416148776]
@@ -1932,7 +1869,6 @@ offset_right = 220.0
 offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="WinBox" type="VBoxContainer" parent="ShopLayer/WinPanel" unique_id=778619185]
 layout_mode = 2
@@ -1956,14 +1892,7 @@ horizontal_alignment = 1
 
 [node name="MenuButton" type="Button" parent="ShopLayer/WinPanel/WinBox" unique_id=1269889022]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 34
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "See score"
 
 [node name="EndPanel" type="PanelContainer" parent="ShopLayer" unique_id=778184842]
@@ -1979,7 +1908,6 @@ offset_right = 220.0
 offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="EndBox" type="VBoxContainer" parent="ShopLayer/EndPanel" unique_id=937744580]
 layout_mode = 2
@@ -1995,7 +1923,7 @@ horizontal_alignment = 1
 
 [node name="EndTextMoney" type="Label" parent="ShopLayer/EndPanel/EndBox" unique_id=2101341322]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_colors/font_color = Color(0.494, 0.82, 0.478, 1)
 theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 34
 text = "Money goes here"
@@ -2035,21 +1963,13 @@ horizontal_alignment = 1
 
 [node name="EndButton" type="Button" parent="ShopLayer/EndPanel/EndBox" unique_id=1053942794]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_colors/font_pressed_color = Color(0.7, 0.6, 0.4, 1)
-theme_override_colors/font_hover_color = Color(1, 0.9, 0.65, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 34
-theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "Back to menu"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=640469246]
 color = Color(0, 0, 0, 1)
 
 [connection signal="invsignal" from="GameManager/InventoryManager" to="UIManager/InventoryUI" method="_on_inventory_manager_invsignal"]
-[connection signal="waxsignal" from="GameManager/CandleManager" to="UIManager/WaxBarUI" method="_on_candle_manager_waxsignal"]
 [connection signal="waxsignal" from="GameManager/CandleManager" to="UIManager/CandleUI" method="_on_candle_manager_waxsignal"]
 [connection signal="moneysignal" from="GameManager/ShopManager" to="UIManager/MoneyUI" method="_on_shop_manager_moneysignal"]
 [connection signal="finished" from="GameManager/Audio/NightAmbience" to="GameManager/Audio/NightAmbience" method="_on_finished"]
