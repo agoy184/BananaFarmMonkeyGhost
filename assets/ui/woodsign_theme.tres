@@ -1,44 +1,18 @@
-[gd_resource type="Theme" load_steps=8 format=3]
+[gd_resource type="Theme" format=3 uid="uid://dhukvwl3cnbfm"]
 
 [ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="1_font"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
 content_margin_left = 20.0
 content_margin_top = 10.0
 content_margin_right = 20.0
 content_margin_bottom = 10.0
-bg_color = Color(0.165, 0.102, 0.071, 1)
+bg_color = Color(0.145, 0.122, 0.106, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0.353, 0.227, 0.133, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-content_margin_left = 20.0
-content_margin_top = 10.0
-content_margin_right = 20.0
-content_margin_bottom = 10.0
-bg_color = Color(0.235, 0.149, 0.094, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 0.824, 0.478, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-content_margin_left = 20.0
-content_margin_top = 12.0
-content_margin_right = 20.0
-content_margin_bottom = 8.0
-bg_color = Color(0.118, 0.071, 0.047, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.667, 0.494, 0.243, 1)
+border_color = Color(0.267, 0.227, 0.196, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_focus"]
@@ -54,17 +28,43 @@ border_width_bottom = 4
 border_color = Color(1, 0.824, 0.478, 1)
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_disabled"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
 content_margin_left = 20.0
 content_margin_top = 10.0
 content_margin_right = 20.0
 content_margin_bottom = 10.0
-bg_color = Color(0.145, 0.122, 0.106, 1)
+bg_color = Color(0.235, 0.149, 0.094, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0.267, 0.227, 0.196, 1)
+border_color = Color(1, 0.824, 0.478, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.165, 0.102, 0.071, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.353, 0.227, 0.133, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 8.0
+bg_color = Color(0.118, 0.071, 0.047, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.667, 0.494, 0.243, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
@@ -82,15 +82,15 @@ anti_aliasing = false
 
 [resource]
 Button/colors/font_color = Color(0.847, 0.788, 0.639, 1)
+Button/colors/font_disabled_color = Color(0.478, 0.443, 0.404, 0.7)
+Button/colors/font_focus_color = Color(1, 0.914, 0.69, 1)
 Button/colors/font_hover_color = Color(1, 0.914, 0.69, 1)
 Button/colors/font_pressed_color = Color(0.667, 0.573, 0.416, 1)
-Button/colors/font_focus_color = Color(1, 0.914, 0.69, 1)
-Button/colors/font_disabled_color = Color(0.478, 0.443, 0.404, 0.7)
 Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("1_font")
-Button/styles/normal = SubResource("StyleBoxFlat_btn_normal")
-Button/styles/hover = SubResource("StyleBoxFlat_btn_hover")
-Button/styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-Button/styles/focus = SubResource("StyleBoxFlat_btn_focus")
 Button/styles/disabled = SubResource("StyleBoxFlat_btn_disabled")
+Button/styles/focus = SubResource("StyleBoxFlat_btn_focus")
+Button/styles/hover = SubResource("StyleBoxFlat_btn_hover")
+Button/styles/normal = SubResource("StyleBoxFlat_btn_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_panel")

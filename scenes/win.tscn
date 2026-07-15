@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="1_r4oei"]
 [ext_resource type="Script" uid="uid://cln4x08f8ebj5" path="res://scripts/menu/winbutton.gd" id="2_826fv"]
+[ext_resource type="AudioStream" uid="uid://imkesfwgymxd" path="res://assets/audio/music/Good Ending.wav" id="3_iiocm"]
 
 [node name="root" type="Node2D" unique_id=1925100225]
 
@@ -45,5 +46,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "Back to menu!"
 script = ExtResource("2_826fv")
+
+[node name="WinJingle" type="AudioStreamPlayer" parent="." unique_id=1154229221]
+stream = ExtResource("3_iiocm")
+autoplay = true
 
 [connection signal="pressed" from="WinPanel/WinBox/MenuButton" to="WinPanel/WinBox/MenuButton" method="_on_pressed"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="1_clwuq"]
 [ext_resource type="Script" uid="uid://cln4x08f8ebj5" path="res://scripts/menu/winbutton.gd" id="2_0wxhb"]
+[ext_resource type="AudioStream" uid="uid://c5w172ks4fk2" path="res://assets/audio/music/Bad Ending.wav" id="3_0wxhb"]
 
 [node name="root" type="Node2D" unique_id=1925100225]
 
@@ -46,5 +47,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "Back to menu!"
 script = ExtResource("2_0wxhb")
+
+[node name="LossJingle" type="AudioStreamPlayer" parent="." unique_id=140788734]
+stream = ExtResource("3_0wxhb")
+autoplay = true
 
 [connection signal="pressed" from="WinPanel/WinBox/MenuButton" to="WinPanel/WinBox/MenuButton" method="_on_pressed"]

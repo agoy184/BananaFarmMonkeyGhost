@@ -7,6 +7,8 @@ extends Node
 @export var rancher_speed := 100.0
 #the harvest manager flips this while the rancher is busy sawing at a stem
 @export var locked := false
+#to adjust speed based on ground type
+var groundfactor := 1.0
 
 func _physics_process(_delta):
 	#we grab an empty 2d vector and fill it with the input
@@ -17,7 +19,7 @@ func _physics_process(_delta):
 	if locked:
 		dir = Vector2.ZERO
 
-	rancher_body.velocity = dir * rancher_speed
+	rancher_body.velocity = dir * rancher_speed * groundfactor
 	rancher_body.move_and_slide()
 	rancher_animation()
 

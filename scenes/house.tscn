@@ -6,12 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="4_3bgk5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_house"]
-radius = 75.0
+radius = 59.008472
 
 [node name="House" type="Node2D" unique_id=614680283]
 script = ExtResource("1_house")
 
 [node name="HouseSprite" type="Sprite2D" parent="." unique_id=1837075676]
+texture_filter = 1
 texture = ExtResource("2_se78b")
 
 [node name="HouseBody" type="StaticBody2D" parent="." unique_id=2023287458]
@@ -26,7 +27,7 @@ script = ExtResource("3_harea")
 house = NodePath("..")
 
 [node name="HouseAreaCollision" type="CollisionShape2D" parent="HouseArea" unique_id=1814159945]
-visible = false
+position = Vector2(-18, 22)
 shape = SubResource("CircleShape2D_house")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=510189722]

@@ -9,6 +9,8 @@ extends Node
 @export var endui : Node
 @export var endmanager : Node
 
+@export var night_panel : Control
+@export var night_ui : Node
 #false while the shop is deciding what happens next, so E can't end the night twice
 var night_active := true
 
@@ -21,10 +23,12 @@ func end_night():
 	if not night_active:
 		return
 	night_active = false
-	shop.open_shop()
+	night_ui.update_title(time.numday)
+	night_panel.visible = true
 
 #rolls the world into the next night, called by the shop's sleep button
 func start_night():
+	night_panel.visible = false
 	night_active = true
 	time.new_night()
 
