@@ -32,6 +32,10 @@ func open_shop():
 	update_panel()
 	panel.visible = true
 
+func close_shop():
+	get_tree().paused = false
+	panel.visible = false
+
 @export var chaching : AudioStreamPlayer
 #turns the carried bananas into money
 func sell_bananas():

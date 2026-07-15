@@ -53,5 +53,8 @@ func _on_end_button_pressed():
 	else :
 		get_tree().change_scene_to_file("res://scenes/loss.tscn")
 
+func _on_back_button_store_pressed():
+	shop.close_shop()
+
 func new_day():
 	pass

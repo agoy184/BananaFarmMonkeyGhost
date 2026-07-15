@@ -1542,17 +1542,24 @@ panel = NodePath("../../ShopLayer/ShopPanel")
 title_label = NodePath("../../ShopLayer/ShopPanel/ShopBox/ShopTitle")
 summary_label = NodePath("../../ShopLayer/ShopPanel/ShopBox/SummaryLabel")
 refuel_button = NodePath("../../ShopLayer/ShopPanel/ShopBox/RefuelButton")
+money = 100
 chaching = NodePath("../Audio/ChaChing")
 
-[node name="UpgradeManager" type="Node" parent="GameManager/ShopManager" unique_id=2113795220 node_paths=PackedStringArray("storepanel", "upgradepanel", "shopmanager", "rancher_movement", "label1", "tooltip", "button1")]
+[node name="UpgradeManager" type="Node" parent="GameManager/ShopManager" unique_id=2113795220 node_paths=PackedStringArray("storepanel", "upgradepanel", "shopmanager", "ground_manager", "rancher_movement", "harvest_manager", "label1", "label2", "label3", "tooltip", "button1", "button2", "button3")]
 script = ExtResource("5_agklt")
 storepanel = NodePath("../../../ShopLayer/ShopPanel")
 upgradepanel = NodePath("../../../ShopLayer/UpgradePanel")
 shopmanager = NodePath("..")
+ground_manager = NodePath("../../../MovementManager/RancherMovement/GroundManager")
 rancher_movement = NodePath("../../../MovementManager/RancherMovement")
+harvest_manager = NodePath("../../../HarvestManager")
 label1 = NodePath("../../../ShopLayer/UpgradePanel/ShopBox/Upgrade 1")
+label2 = NodePath("../../../ShopLayer/UpgradePanel/ShopBox/Upgrade 2")
+label3 = NodePath("../../../ShopLayer/UpgradePanel/ShopBox/Upgrade 3")
 tooltip = NodePath("../../../UIControl/CanvasLayer/TooltipLabel")
 button1 = NodePath("../../../ShopLayer/UpgradePanel/ShopBox/Button 1")
+button2 = NodePath("../../../ShopLayer/UpgradePanel/ShopBox/Button 2")
+button3 = NodePath("../../../ShopLayer/UpgradePanel/ShopBox/Button 3")
 
 [node name="StallManager" type="Node" parent="GameManager/ShopManager" unique_id=994909555 node_paths=PackedStringArray("store", "upgrade", "stall")]
 script = ExtResource("7_pkchf")
@@ -2323,6 +2330,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "View upgrades"
 
+[node name="BackButtonStore" type="Button" parent="ShopLayer/ShopPanel/ShopBox" unique_id=1485765546]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Go back"
+
 [node name="UpgradePanel" type="PanelContainer" parent="ShopLayer" unique_id=1016735308]
 visible = false
 anchors_preset = 8
@@ -2361,6 +2373,38 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Button 1" type="Button" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=246767947]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Buy!"
+
+[node name="Upgrade 2" type="RichTextLabel" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=136253634]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/normal_font = ExtResource("30_58tnd")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]Upgrade 1[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button 2" type="Button" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=1260882380]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Buy!"
+
+[node name="Upgrade 3" type="RichTextLabel" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=1397697006]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/normal_font = ExtResource("30_58tnd")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]Upgrade 1[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button 3" type="Button" parent="ShopLayer/UpgradePanel/ShopBox" unique_id=464317123]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Buy!"
@@ -2506,9 +2550,16 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="ShopLayer/NightPanel/ShopBox/SleepButton" to="GameManager/ShopManager" method="_on_sleep_button_pressed"]
 [connection signal="pressed" from="ShopLayer/ShopPanel/ShopBox/RefuelButton" to="GameManager/ShopManager" method="_on_refuel_button_pressed"]
 [connection signal="pressed" from="ShopLayer/ShopPanel/ShopBox/UpgradeButton" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="ShopLayer/ShopPanel/ShopBox/BackButtonStore" to="GameManager" method="_on_back_button_store_pressed"]
 [connection signal="mouse_entered" from="ShopLayer/UpgradePanel/ShopBox/Upgrade 1" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_1_mouse_entered"]
 [connection signal="mouse_exited" from="ShopLayer/UpgradePanel/ShopBox/Upgrade 1" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_1_mouse_exited"]
 [connection signal="pressed" from="ShopLayer/UpgradePanel/ShopBox/Button 1" to="GameManager/ShopManager/UpgradeManager" method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="ShopLayer/UpgradePanel/ShopBox/Upgrade 2" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_2_mouse_entered"]
+[connection signal="mouse_exited" from="ShopLayer/UpgradePanel/ShopBox/Upgrade 2" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_1_mouse_exited"]
+[connection signal="pressed" from="ShopLayer/UpgradePanel/ShopBox/Button 2" to="GameManager/ShopManager/UpgradeManager" method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="ShopLayer/UpgradePanel/ShopBox/Upgrade 3" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_3_mouse_entered"]
+[connection signal="mouse_exited" from="ShopLayer/UpgradePanel/ShopBox/Upgrade 3" to="GameManager/ShopManager/UpgradeManager" method="_on_upgrade_1_mouse_exited"]
+[connection signal="pressed" from="ShopLayer/UpgradePanel/ShopBox/Button 3" to="GameManager/ShopManager/UpgradeManager" method="_on_button_3_pressed"]
 [connection signal="pressed" from="ShopLayer/UpgradePanel/ShopBox/BackButton" to="GameManager/ShopManager/UpgradeManager" method="_on_back_button_pressed"]
 [connection signal="pressed" from="ShopLayer/WinPanel/WinBox/MenuButton" to="GameManager" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="ShopLayer/EndPanel/EndBox/EndButton" to="GameManager" method="_on_end_button_pressed"]
