@@ -29,3 +29,7 @@ func rancher_animation():
 		rancher_sprite.play("idle")
 	else :
 		rancher_sprite.play("walk")
+
+@export var starting_position : Node2D
+func goback():
+	rancher_body.global_position = starting_position.global_position

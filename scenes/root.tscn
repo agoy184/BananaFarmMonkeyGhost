@@ -75,6 +75,7 @@
 [ext_resource type="Texture2D" uid="uid://djmmrlb2gk54a" path="res://assets/candle_sprite/Sprite-75% or less candle.png" id="59_1cknt"]
 [ext_resource type="Texture2D" uid="uid://b50miaok1wd27" path="res://assets/store_sprites/Sprite-Animation HI! of open market house.png" id="61_qvqbn"]
 [ext_resource type="Script" uid="uid://ddiaky6u0tpmm" path="res://scripts/managers/mapstore.gd" id="66_kgph3"]
+[ext_resource type="Texture2D" uid="uid://pi3b11rn6mon" path="res://assets/Sprite-Monkey Scream.png" id="75_6do87"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h44qa"]
 texture = ExtResource("12_ya6yc")
@@ -1503,7 +1504,7 @@ corner_radius_bottom_left = 3
 
 [node name="root" type="Node2D" unique_id=689511176]
 
-[node name="GameManager" type="Node" parent="." unique_id=120810750 node_paths=PackedStringArray("time", "shop", "win_panel", "end_panel", "endui", "endmanager", "night_panel", "night_ui")]
+[node name="GameManager" type="Node" parent="." unique_id=120810750 node_paths=PackedStringArray("time", "shop", "win_panel", "end_panel", "endui", "endmanager", "player_movement", "monkey_movement", "inventory_manager", "night_panel", "night_ui")]
 script = ExtResource("1_twpsu")
 time = NodePath("../TimeManager")
 shop = NodePath("ShopManager")
@@ -1511,6 +1512,9 @@ win_panel = NodePath("../ShopLayer/WinPanel")
 end_panel = NodePath("../ShopLayer/EndPanel")
 endui = NodePath("../UIManager/EndUI")
 endmanager = NodePath("EndingManager")
+player_movement = NodePath("../MovementManager/RancherMovement")
+monkey_movement = NodePath("../MovementManager/MonkeyMovement")
+inventory_manager = NodePath("InventoryManager")
 night_panel = NodePath("../ShopLayer/NightPanel")
 night_ui = NodePath("../UIManager/NightPanelUI")
 
@@ -1542,7 +1546,6 @@ panel = NodePath("../../ShopLayer/ShopPanel")
 title_label = NodePath("../../ShopLayer/ShopPanel/ShopBox/ShopTitle")
 summary_label = NodePath("../../ShopLayer/ShopPanel/ShopBox/SummaryLabel")
 refuel_button = NodePath("../../ShopLayer/ShopPanel/ShopBox/RefuelButton")
-money = 100
 chaching = NodePath("../Audio/ChaChing")
 
 [node name="UpgradeManager" type="Node" parent="GameManager/ShopManager" unique_id=2113795220 node_paths=PackedStringArray("storepanel", "upgradepanel", "shopmanager", "ground_manager", "rancher_movement", "harvest_manager", "label1", "label2", "label3", "tooltip", "button1", "button2", "button3")]
@@ -1657,10 +1660,11 @@ script = ExtResource("3_lrqlo")
 
 [node name="MovementManager" type="Node" parent="." unique_id=1778853816]
 
-[node name="RancherMovement" type="Node" parent="MovementManager" unique_id=1235569712 node_paths=PackedStringArray("rancher_body", "rancher_sprite")]
+[node name="RancherMovement" type="Node" parent="MovementManager" unique_id=1235569712 node_paths=PackedStringArray("rancher_body", "rancher_sprite", "starting_position")]
 script = ExtResource("5_kycxp")
 rancher_body = NodePath("../../GameScene/Rancher_Body")
 rancher_sprite = NodePath("../../GameScene/Rancher_Body/Rancher_Sprite")
+starting_position = NodePath("../../GameScene/Starting Position")
 
 [node name="GroundManager" type="Node" parent="MovementManager/RancherMovement" unique_id=794207169 node_paths=PackedStringArray("groundsound", "woodsound", "tilemap", "rancher", "manager")]
 script = ExtResource("32_pkchf")
@@ -1670,7 +1674,7 @@ tilemap = NodePath("../../../TileMapGround")
 rancher = NodePath("../../../GameScene/Rancher_Body")
 manager = NodePath("..")
 
-[node name="MonkeyMovement" type="Node" parent="MovementManager" unique_id=1075816075 node_paths=PackedStringArray("rancher_body", "monkey_body", "inventory", "candle", "sprite", "farmer_breath", "move_audio", "irritated_audio", "appear_audio", "mad_audio")]
+[node name="MonkeyMovement" type="Node" parent="MovementManager" unique_id=1075816075 node_paths=PackedStringArray("rancher_body", "monkey_body", "inventory", "candle", "sprite", "farmer_breath", "move_audio", "irritated_audio", "appear_audio", "mad_audio", "monkey_scream")]
 script = ExtResource("6_5sfjl")
 rancher_body = NodePath("../../GameScene/Rancher_Body")
 monkey_body = NodePath("../../GameScene/Monkey_Body")
@@ -1683,6 +1687,7 @@ move_audio = NodePath("../../GameManager/Audio/MonkeyMove")
 irritated_audio = NodePath("../../GameManager/Audio/MonkeyIrritated")
 appear_audio = NodePath("../../GameManager/Audio/MonkeyAppear")
 mad_audio = NodePath("../../GameManager/Audio/MonkeyMad")
+monkey_scream = NodePath("../../UIControl/CanvasLayer/MonkeyScream")
 
 [node name="MonkeyCatches" type="Node" parent="MovementManager/MonkeyMovement" unique_id=838908677 node_paths=PackedStringArray("rancher_body", "rancher_movement", "gmanager", "audio", "monkey_movement")]
 script = ExtResource("7_3hfy5")
@@ -1818,6 +1823,10 @@ collision_mask = 3
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameScene/Rancher_Body/PointLight2DTriangle/flarea" unique_id=1289085953]
 position = Vector2(0, 182.96101)
 polygon = PackedVector2Array(206.56885, 47.21582, -153.45117, 35.411865, -371.8241, -885.29517, 424.94165, -885.29517)
+
+[node name="Starting Position" type="Node2D" parent="GameScene" unique_id=2111145585]
+position = Vector2(496, 775)
+scale = Vector2(0.3, 0.3)
 
 [node name="Monkey_Body" type="CharacterBody2D" parent="GameScene" unique_id=527774286]
 position = Vector2(968, 470)
@@ -2184,6 +2193,13 @@ position = Vector2(-48.297943, -75.797935)
 scale = Vector2(1.9936857, 1.9936857)
 sprite_frames = SubResource("SpriteFrames_loq3h")
 animation = &"100"
+
+[node name="MonkeyScream" type="Sprite2D" parent="UIControl/CanvasLayer" unique_id=35875061]
+visible = false
+texture_filter = 1
+position = Vector2(556, 315)
+scale = Vector2(10, 10)
+texture = ExtResource("75_6do87")
 
 [node name="FXLayer" type="CanvasLayer" parent="." unique_id=1855965671]
 layer = 4

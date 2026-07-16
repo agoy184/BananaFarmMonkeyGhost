@@ -55,7 +55,7 @@ func haunting():
 func is_going_bananas():
 	if stunned:
 		return
-	timerage += 0.1
+	timerage += 1.0
 	bananarage = inventory.bananas * rage_per_banana
 	rage = timerage + bananarage
 	if rage < candle.wax:
@@ -124,6 +124,13 @@ func stun():
 	await get_tree().create_timer(stuntime).timeout
 	stunned = false
 	appear()
+
+@export var monkey_scream : Sprite2D
+func scream():
+	monkey_scream.visible = true
+
+func unscream():
+	monkey_scream.visible = false
 
 func _ready():
 	is_going_bananas()

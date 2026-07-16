@@ -9,6 +9,10 @@ extends Node
 @export var endui : Node
 @export var endmanager : Node
 
+@export var player_movement : Node
+@export var monkey_movement : Node
+@export var inventory_manager : Node
+
 @export var night_panel : Control
 @export var night_ui : Node
 #false while the shop is deciding what happens next, so E can't end the night twice
@@ -35,7 +39,10 @@ func start_night():
 func game_over():
 	#pause survives scene reloads, so always clear it first
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	time.new_night()
+	player_movement.locked = false
+	inventory_manager.empty_inventory()
+	player_movement.goback()
 
 func game_won():
 	get_tree().paused = true
