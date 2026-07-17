@@ -1,0 +1,595 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://e34po6rqbi6f" path="res://scripts/managers/tutorial_manager.gd" id="1_tut"]
+[ext_resource type="Script" uid="uid://cbj72t6aviakm" path="res://scripts/managers/oldman_movement.gd" id="2_move"]
+[ext_resource type="Script" uid="uid://dbg3bbs6wvr0u" path="res://scripts/managers/camera_manager.gd" id="3_cam"]
+[ext_resource type="Script" uid="uid://u6l5byjqapj7" path="res://scripts/managers/candle_manager.gd" id="4_candle"]
+[ext_resource type="Script" uid="uid://cg1auh60dkanx" path="res://scripts/managers/flare_manager_new.gd" id="5_flare"]
+[ext_resource type="Script" uid="uid://liyk1knadwc1" path="res://scripts/managers/inventory_manager.gd" id="6_inv"]
+[ext_resource type="Script" uid="uid://dcfisr4vgcl7s" path="res://scripts/managers/banana_manager.gd" id="7_ban"]
+[ext_resource type="Script" uid="uid://dr32c5c0r04sa" path="res://scripts/managers/harvest_manager.gd" id="8_harv"]
+[ext_resource type="Script" uid="uid://b7pm6jfstulgh" path="res://scripts/managers/home_manager.gd" id="9_home"]
+[ext_resource type="Script" uid="uid://u7okko01e152" path="res://scripts/fx/float_text_manager.gd" id="10_float"]
+[ext_resource type="PackedScene" uid="uid://c4jaohnyl0sji" path="res://scenes/rancher_body.tscn" id="11_rancher"]
+[ext_resource type="PackedScene" uid="uid://ctxuo3k5m7pqu" path="res://scenes/banana_tree.tscn" id="12_tree"]
+[ext_resource type="PackedScene" uid="uid://n20016r36ify" path="res://scenes/house.tscn" id="13_house"]
+[ext_resource type="Texture2D" uid="uid://cc8036cnvomju" path="res://assets/tiles/Sprite-Ground.png" id="14_ground"]
+[ext_resource type="Texture2D" uid="uid://wj7hlbla1h3m" path="res://assets/Sprite-Flare.png" id="15_flaretex"]
+[ext_resource type="Texture2D" uid="uid://xrifil2nx82a" path="res://assets/temp/light_texture_asset.png" id="16_light"]
+[ext_resource type="AudioStream" uid="uid://viaur78cxxn8" path="res://assets/audio/sfx/Flare.wav" id="17_flarewav"]
+[ext_resource type="AudioStream" uid="uid://lxdarg51821t" path="res://assets/audio/sfx/Reaping Bananas.wav" id="18_reap"]
+[ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="19_font"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yq53u"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8s1w"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(288, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyo3h"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfhvc"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(320, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mltg"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6j52"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(352, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtdgs"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6ptj"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(384, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sxaf"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ffnd"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(416, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hefpw"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42r4m"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(448, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3d0l"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqngs"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(480, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtgr4"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofjb0"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(512, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lclsv"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iywd0"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(544, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l50vv"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts018"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goepg"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_643w1"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqvf4"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfmnr"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mihsp"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmpm7"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqwwr"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axb8m"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5lcu"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50j87"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3do2d"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d8qh"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihi20"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8fyr"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ghx8"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6rg8"]
+atlas = ExtResource("15_flaretex")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tml3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yq53u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8s1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyo3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfhvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mltg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6j52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtdgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6ptj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sxaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ffnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hefpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42r4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3d0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqngs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtgr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofjb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lclsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iywd0")
+}],
+"loop": 0,
+"name": &"explosion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l50vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts018")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goepg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_643w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqvf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfmnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mihsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmpm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqwwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axb8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5lcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50j87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3do2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d8qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihi20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8fyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ghx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6rg8")
+}],
+"loop": 1,
+"name": &"rotation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_loq3h"]
+radius = 48.04165
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ajtct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wallh"]
+size = Vector2(1640, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wallv"]
+size = Vector2(40, 1240)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
+bg_color = Color(0.04, 0.03, 0.06, 0.9)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_cut"]
+bg_color = Color(0.45, 0.85, 0.35, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_strain"]
+bg_color = Color(1, 0.75, 0.3, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="GameScene" type="Node2D" parent="."]
+
+[node name="Ground" type="Sprite2D" parent="GameScene"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-400, -300)
+texture = ExtResource("14_ground")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1600, 1200)
+
+[node name="Rancher" parent="GameScene" instance=ExtResource("11_rancher")]
+position = Vector2(500, 600)
+
+[node name="PointLight2DTriangle" parent="GameScene/Rancher" index="3"]
+visible = false
+
+[node name="BananaTree" parent="GameScene" node_paths=PackedStringArray("player") instance=ExtResource("12_tree")]
+position = Vector2(700, 470)
+player = NodePath("../Rancher")
+
+[node name="House" parent="GameScene" node_paths=PackedStringArray("player") instance=ExtResource("13_house")]
+position = Vector2(280, 470)
+scale = Vector2(2, 2)
+player = NodePath("../Rancher")
+
+[node name="RoundFlare" type="CharacterBody2D" parent="GameScene"]
+position = Vector2(600, 700)
+collision_layer = 15
+collision_mask = 14
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GameScene/RoundFlare"]
+sprite_frames = SubResource("SpriteFrames_2tml3")
+animation = &"rotation"
+
+[node name="PointLight2D" type="PointLight2D" parent="GameScene/RoundFlare"]
+color = Color(1, 0.81960785, 0.54901963, 1)
+energy = 1.2
+texture = ExtResource("16_light")
+
+[node name="Area2D" type="Area2D" parent="GameScene/RoundFlare/PointLight2D"]
+visibility_layer = 2
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/RoundFlare/PointLight2D/Area2D"]
+shape = SubResource("CircleShape2D_loq3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/RoundFlare"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_ajtct")
+
+[node name="Boundaries" type="Node2D" parent="GameScene"]
+
+[node name="WallTop" type="StaticBody2D" parent="GameScene/Boundaries"]
+position = Vector2(400, -320)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/Boundaries/WallTop"]
+shape = SubResource("RectangleShape2D_wallh")
+
+[node name="WallBottom" type="StaticBody2D" parent="GameScene/Boundaries"]
+position = Vector2(400, 920)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/Boundaries/WallBottom"]
+shape = SubResource("RectangleShape2D_wallh")
+
+[node name="WallLeft" type="StaticBody2D" parent="GameScene/Boundaries"]
+position = Vector2(-420, 300)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/Boundaries/WallLeft"]
+shape = SubResource("RectangleShape2D_wallv")
+
+[node name="WallRight" type="StaticBody2D" parent="GameScene/Boundaries"]
+position = Vector2(1220, 300)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameScene/Boundaries/WallRight"]
+shape = SubResource("RectangleShape2D_wallv")
+
+[node name="GuideArrow" type="Node2D" parent="GameScene"]
+visible = false
+z_index = 50
+
+[node name="ArrowShape" type="Polygon2D" parent="GameScene/GuideArrow"]
+color = Color(1, 0.87, 0.33, 0.9)
+polygon = PackedVector2Array(26, 0, 4, -14, 4, -6, -22, -6, -22, 6, 4, 6, 4, 14)
+
+[node name="Camera2D" type="Camera2D" parent="GameScene"]
+position = Vector2(500, 600)
+zoom = Vector2(1.6, 1.6)
+limit_left = -400
+limit_top = -300
+limit_right = 1200
+limit_bottom = 900
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="RancherMovement" type="Node" parent="Managers" node_paths=PackedStringArray("rancher_body", "rancher_sprite")]
+script = ExtResource("2_move")
+rancher_body = NodePath("../../GameScene/Rancher")
+rancher_sprite = NodePath("../../GameScene/Rancher/Rancher_Sprite")
+
+[node name="CameraManager" type="Node" parent="Managers" node_paths=PackedStringArray("camera", "rancher_body")]
+script = ExtResource("3_cam")
+camera = NodePath("../../GameScene/Camera2D")
+rancher_body = NodePath("../../GameScene/Rancher")
+
+[node name="CandleManager" type="Node" parent="Managers" node_paths=PackedStringArray("candle")]
+script = ExtResource("4_candle")
+candle = NodePath("../../GameScene/Rancher/PointLight2DRound")
+
+[node name="FlareManagerNew" type="Node2D" parent="Managers/CandleManager" node_paths=PackedStringArray("flare", "rancher", "sprite", "light", "audio", "wax_manager", "rancher_manager")]
+script = ExtResource("5_flare")
+flare = NodePath("../../../GameScene/RoundFlare")
+rancher = NodePath("../../../GameScene/Rancher")
+sprite = NodePath("../../../GameScene/RoundFlare/AnimatedSprite2D")
+light = NodePath("../../../GameScene/RoundFlare/PointLight2D")
+audio = NodePath("../../Audio/FlareSound")
+wax_manager = NodePath("..")
+rancher_manager = NodePath("../../RancherMovement")
+
+[node name="InventoryManager" type="Node" parent="Managers"]
+script = ExtResource("6_inv")
+
+[node name="BananaManager" type="Node" parent="Managers" node_paths=PackedStringArray("plants", "harvest")]
+script = ExtResource("7_ban")
+plants = [NodePath("../../GameScene/BananaTree")]
+harvest = NodePath("../HarvestManager")
+
+[node name="HarvestManager" type="Node" parent="Managers" node_paths=PackedStringArray("banana_audio", "movement", "inventory", "floats", "widget", "cut_bar", "strain_bar")]
+script = ExtResource("8_harv")
+banana_audio = NodePath("../Audio/HarvestAudio")
+movement = NodePath("../RancherMovement")
+inventory = NodePath("../InventoryManager")
+floats = NodePath("../../FXLayer/FloatTextManager")
+widget = NodePath("../../FXLayer/HarvestWidget")
+cut_bar = NodePath("../../FXLayer/HarvestWidget/HarvestBox/CutBar")
+strain_bar = NodePath("../../FXLayer/HarvestWidget/HarvestBox/StrainBar")
+
+[node name="HomeManager" type="Node" parent="Managers" node_paths=PackedStringArray("area", "gmanager", "harvest")]
+script = ExtResource("9_home")
+area = NodePath("../../GameScene/House/HouseArea")
+gmanager = NodePath("../TutorialManager")
+harvest = NodePath("../HarvestManager")
+
+[node name="Audio" type="Node" parent="Managers"]
+
+[node name="FlareSound" type="AudioStreamPlayer" parent="Managers/Audio"]
+stream = ExtResource("17_flarewav")
+
+[node name="HarvestAudio" type="AudioStreamPlayer" parent="Managers/Audio"]
+stream = ExtResource("18_reap")
+
+[node name="TutorialManager" type="Node" parent="Managers" node_paths=PackedStringArray("rancher_body", "tree", "house", "flare_manager", "prompt_label", "arrow")]
+script = ExtResource("1_tut")
+rancher_body = NodePath("../../GameScene/Rancher")
+tree = NodePath("../../GameScene/BananaTree")
+house = NodePath("../../GameScene/House")
+flare_manager = NodePath("../CandleManager/FlareManagerNew")
+prompt_label = NodePath("../../UILayer/PromptLabel")
+arrow = NodePath("../../GameScene/GuideArrow")
+
+[node name="FXLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="FloatTextManager" type="Node" parent="FXLayer" node_paths=PackedStringArray("fx_layer")]
+script = ExtResource("10_float")
+fx_layer = NodePath("..")
+
+[node name="HarvestWidget" type="Control" parent="FXLayer"]
+visible = false
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HarvestBox" type="VBoxContainer" parent="FXLayer/HarvestWidget"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 40.0
+theme_override_constants/separation = 1
+
+[node name="CutLabel" type="Label" parent="FXLayer/HarvestWidget/HarvestBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
+theme_override_fonts/font = ExtResource("19_font")
+theme_override_font_sizes/font_size = 18
+text = "cut"
+
+[node name="CutBar" type="ProgressBar" parent="FXLayer/HarvestWidget/HarvestBox"]
+custom_minimum_size = Vector2(64, 8)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bar_cut")
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="StrainLabel" type="Label" parent="FXLayer/HarvestWidget/HarvestBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
+theme_override_fonts/font = ExtResource("19_font")
+theme_override_font_sizes/font_size = 18
+text = "strain"
+
+[node name="StrainBar" type="ProgressBar" parent="FXLayer/HarvestWidget/HarvestBox"]
+custom_minimum_size = Vector2(64, 6)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bar_bg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bar_strain")
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.06, 0.06, 0.1, 1)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PromptLabel" type="RichTextLabel" parent="UILayer"]
+offset_left = 176.0
+offset_top = 500.0
+offset_right = 976.0
+offset_bottom = 548.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.87, 0.8, 0.66, 1)
+theme_override_colors/font_outline_color = Color(0.04, 0.03, 0.06, 0.85)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("19_font")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+scroll_active = false
+
+[node name="ControlsLabel" type="RichTextLabel" parent="UILayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -38.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.87, 0.8, 0.66, 0.85)
+theme_override_colors/font_outline_color = Color(0.04, 0.03, 0.06, 0.85)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("19_font")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][color=#ffde54]WASD / Arrows[/color]  Move      [color=#ffde54]E[/color]  Interact      [color=#ffde54]Right-click[/color]  Flare[/center]"
+scroll_active = false
+
+[node name="SkipButton" type="Button" parent="UILayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -190.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = 52.0
+grow_horizontal = 0
+text = "Skip tutorial"
+
+[connection signal="harvested_signal" from="Managers/HarvestManager" to="Managers/CameraManager" method="_on_harvest_manager_harvested_signal"]
+[connection signal="snap_signal" from="Managers/HarvestManager" to="Managers/CameraManager" method="_on_harvest_manager_snap_signal"]
+[connection signal="harvested_signal" from="Managers/HarvestManager" to="Managers/TutorialManager" method="_on_harvest_manager_harvested_signal"]
+[connection signal="snap_signal" from="Managers/HarvestManager" to="Managers/TutorialManager" method="_on_harvest_manager_snap_signal"]
+[connection signal="area_entered" from="GameScene/RoundFlare/PointLight2D/Area2D" to="Managers/CandleManager/FlareManagerNew" method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="UILayer/SkipButton" to="Managers/TutorialManager" method="_on_skip_button_pressed"]

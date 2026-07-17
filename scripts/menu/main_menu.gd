@@ -5,7 +5,7 @@ extends Node2D
 @export var credits_panel : PanelContainer
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/root.tscn")
+	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
 
 func _on_options_button_pressed():
 	credits_panel.hide()

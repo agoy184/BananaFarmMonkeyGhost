@@ -2546,6 +2546,25 @@ theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 
+[node name="ControlsLabel" type="RichTextLabel" parent="UIControl/CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -38.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.87, 0.8, 0.66, 0.85)
+theme_override_colors/font_outline_color = Color(0.04, 0.03, 0.06, 0.85)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("30_58tnd")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][color=#ffde54]WASD / Arrows[/color]  Move      [color=#ffde54]E[/color]  Interact      [color=#ffde54]Right-click[/color]  Flare[/center]"
+scroll_active = false
+
 [node name="TooltipLabel" type="Label" parent="UIControl/CanvasLayer" unique_id=1319084861]
 offset_left = 364.0
 offset_top = 78.0
