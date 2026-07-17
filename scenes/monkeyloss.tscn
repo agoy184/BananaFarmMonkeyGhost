@@ -35,7 +35,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
 theme_override_fonts/font = ExtResource("1_kqjil")
 theme_override_font_sizes/font_size = 34
-text = "The vengeful spirit has caught you one time too many, and you are dragged into the 
+text = "The vengeful spirit has caught you one time too many, and you have been dragged into the 
 screeching darkness with no chance for recourse.
 
 There is no way of knowing exactly how painful your fate was, though there is one

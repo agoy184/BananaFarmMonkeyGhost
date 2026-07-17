@@ -60,6 +60,8 @@ func update_panel():
 	refuel_button.disabled = money < refuel_cost or candle.wax >= candle.maxwax
 
 func _on_refuel_button_pressed():
+	if money < refuel_cost:
+		return
 	money -= refuel_cost
 	candle.refill()
 	moneysignal.emit()

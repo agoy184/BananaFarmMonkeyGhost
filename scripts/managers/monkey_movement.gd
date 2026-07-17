@@ -53,7 +53,11 @@ func haunting():
 #as the funcion is NOT to be called in _process, its output is actually stored in a variable
 @export var going_bananas := false
 func is_going_bananas():
+	if is_safe():
+		going_bananas = false
+		return
 	if stunned:
+		going_bananas = false
 		return
 	timerage += 1.0
 	bananarage = inventory.bananas * rage_per_banana
@@ -95,8 +99,8 @@ func disappear():
 	monkey_body.visible = false
 	monkey_body.process_mode = Node.PROCESS_MODE_DISABLED
 
-@export var mindis := 200
-@export var maxdis := 250
+@export var mindis := 300
+@export var maxdis := 400
 #the monkey must appear close to the rancher
 func new_position():
 	#get a random angle in RAD
@@ -140,6 +144,15 @@ func long_scream():
 
 func unscream():
 	monkey_scream.visible = false
+
+@export var safezone : Area2D
+func is_safe():
+	if safezone.overlaps_body(rancher_body) or safezone.overlaps_body(monkey_body):
+		disappear()
+		return true
+	else:
+		return false
+
 
 func _ready():
 	is_going_bananas()

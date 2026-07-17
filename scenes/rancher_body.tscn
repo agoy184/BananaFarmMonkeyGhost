@@ -156,6 +156,7 @@ texture = ExtResource("3_k6hne")
 texture_scale = 15.0
 
 [node name="PointLight2DTriangle" type="PointLight2D" parent="." unique_id=982160913]
+visible = false
 position = Vector2(3.333332, 10.000015)
 scale = Vector2(0.5647833, 0.5647833)
 color = Color(1, 0.81960785, 0.54901963, 1)

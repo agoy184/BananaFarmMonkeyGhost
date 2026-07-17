@@ -5,7 +5,7 @@ extends Node
 @export var manager : Node
 
 func update_label():
-	label.text = manager.money_str()
+	label.text = manager.money_str() + " - Goal : $100" 
 
 func _ready():
 	update_label()

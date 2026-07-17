@@ -11,6 +11,7 @@ func _on_upgrade_button_pressed():
 func _on_back_button_pressed():
 	upgradepanel.visible = false
 	storepanel.visible = true
+	shopmanager.moneysignal.emit()
 
 #could easily be expanded
 func update_panel():
@@ -21,6 +22,7 @@ func update_panel():
 	checkbutton2()
 	checkbutton3()
 	shopmanager.moneysignal.emit()
+	shopmanager.update_panel()
 
 @export var shopmanager : Node
 func getmoney():
@@ -43,9 +45,12 @@ class upgrade:
 func buy(upgrade):
 	#the check should not be necessary, because the button should be disabled, but better safe...
 	if upgrade.purchased == true:
-		return
+		return false
+	if shopmanager.money < upgrade.price:
+		return false
 	shopmanager.money -= upgrade.price
 	upgrade.purchased = true
+	return true
 
 #Let's create a sample upgrade: magic boots to make the rancher faster
 var boots = upgrade.new(0, "Sturdy Boots", "Makes the rancher faster on rough terrain", 10)
@@ -113,14 +118,17 @@ func checkbutton3():
 		button3.disabled = false
 
 func _on_button_1_pressed():
-	buy(boots)
+	if !buy(boots):
+		return
 	activate_boots()
 	update_panel()
 func _on_button_2_pressed():
-	buy(watch)
+	if !buy(watch):
+		return
 	activate_watch()
 	update_panel()
-func _on_button_3_pressed() -> void:
-	buy(machete)
+func _on_button_3_pressed():
+	if !buy(machete):
+		return
 	activate_machete()
 	update_panel()

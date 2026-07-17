@@ -38,7 +38,7 @@ func _process(delta):
 		if walked >= move_time:
 			step = 1
 			target = tree
-			set_prompt(2, "Hold " + key("E") + " by the banana tree - ease off before the stem snaps")
+			set_prompt(2, "Tap " + key("E") + " by the banana tree - ease off before the stem snaps")
 	elif step == 2:
 		if flare_manager.flareon:
 			step = 3
