@@ -30,9 +30,12 @@ var flareon := false
 var flying := false
 var target := Vector2.ZERO
 func toss():
-	if !initial_check():
-		return
+	#the flareon check must come first, or spamming the button eats wax with no flare
 	if flareon:
+		return
+	if cooling:
+		return
+	if !initial_check():
 		return
 	audio.play()
 	target = get_global_mouse_position()
@@ -72,10 +75,19 @@ func lights_off():
 	tween.tween_property(light, "scale", Vector2(1.0, 1.0), light_tm)
 	await tween.finished
 	deactivate()
+	start_cooldown()
 
 func _physics_process(_delta):
 	if flying:
 		fly()
+
+#short breather after a flare dies, so you can't chain-toss them
+@export var cooldown := 1.0
+var cooling := false
+func start_cooldown():
+	cooling = true
+	await get_tree().create_timer(cooldown).timeout
+	cooling = false
 
 #simple functions to activate/deactivate the flare
 func activate():
