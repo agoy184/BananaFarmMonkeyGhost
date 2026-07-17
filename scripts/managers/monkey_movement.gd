@@ -127,9 +127,16 @@ func stun():
 	stunned = false
 	appear()
 
-@export var monkey_scream : Sprite2D
+@export var monkey_scream : AnimatedSprite2D
 func scream():
 	monkey_scream.visible = true
+
+func long_scream():
+	monkey_scream.visible = true
+	monkey_scream.play("eat")
+	var tween = create_tween()
+	tween.tween_property(monkey_scream, "scale", Vector2(20.0,20.0), 2.1)
+	await tween.finished
 
 func unscream():
 	monkey_scream.visible = false

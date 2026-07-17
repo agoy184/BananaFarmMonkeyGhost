@@ -3,7 +3,10 @@ extends Node
 @export var optionpanel : Control
 var pauseflag := false
 
-
+func midstop():
+	speedmanager.speedfactor = 0.0
+	get_tree().paused = true
+	pauseflag = true
 func fullstop():
 	speedmanager.speedfactor = 0.0
 	optionpanel.visible = true

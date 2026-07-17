@@ -16,7 +16,7 @@ func _input(event):
 	if event.is_action_pressed("Flare"):
 		toss()
 
-var waxcost := 3.0
+var waxcost := 5.0
 func initial_check():
 	if rancher_manager.locked == true:
 		return false

@@ -25,6 +25,18 @@ func _on_monkey_area_body_entered(body: Node2D):
 		monkey_movement.unscream()
 		caught_signal.emit()
 		gmanager.game_over()
+		monkeywarn()
 
 func badend():
+	await monkey_movement.long_scream()
 	get_tree().change_scene_to_file("res://scenes/monkeyloss.tscn")
+
+@export var pause : Node
+@export var warning : Control
+func monkeywarn():
+	pause.midstop()
+	warning.visible = true
+
+func _on_warn_button_pressed() -> void:
+	pause.resume()
+	warning.visible = false

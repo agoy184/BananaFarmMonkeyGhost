@@ -57,7 +57,6 @@
 [ext_resource type="Script" uid="uid://dbg3bbs6wvr0u" path="res://scripts/managers/camera_manager.gd" id="29_cam"]
 [ext_resource type="AudioStream" uid="uid://viaur78cxxn8" path="res://assets/audio/sfx/Flare.wav" id="29_cky0w"]
 [ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="30_58tnd"]
-[ext_resource type="Script" uid="uid://b4aun1u21rj3c" path="res://scripts/managers/daytime_manager.gd" id="31_si3bb"]
 [ext_resource type="Texture2D" uid="uid://cy58k57y1w7jc" path="res://assets/temp/Triangle_lighttexture.png" id="32_f0nuf"]
 [ext_resource type="Script" uid="uid://b0se1gw3uglmr" path="res://scripts/managers/ground_manager.gd" id="32_pkchf"]
 [ext_resource type="Script" uid="uid://4xil7ujehlvv" path="res://scripts/managers/pause_manager.gd" id="33_76som"]
@@ -82,7 +81,7 @@
 [ext_resource type="Texture2D" uid="uid://b50miaok1wd27" path="res://assets/store_sprites/Sprite-Animation HI! of open market house.png" id="61_qvqbn"]
 [ext_resource type="Script" uid="uid://ddiaky6u0tpmm" path="res://scripts/managers/mapstore.gd" id="66_kgph3"]
 [ext_resource type="Texture2D" uid="uid://wj7hlbla1h3m" path="res://assets/Sprite-Flare.png" id="71_44hxd"]
-[ext_resource type="Texture2D" uid="uid://pi3b11rn6mon" path="res://assets/Sprite-Monkey Scream.png" id="75_6do87"]
+[ext_resource type="Texture2D" uid="uid://kljt0momo1an" path="res://assets/Sprite-Monkey Scream Animated.png" id="81_cky0w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h44qa"]
 texture = ExtResource("12_ya6yc")
@@ -1806,6 +1805,98 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch76s"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxagx"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vdxu"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w2ra"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmblp"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cmui"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpr5p"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y35yl"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvir3"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yj5q"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l66xo"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3clku"]
+atlas = ExtResource("81_cky0w")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyn4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch76s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxagx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vdxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w2ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmblp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cmui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpr5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y35yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvir3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yj5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l66xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3clku")
+}],
+"loop": 1,
+"name": &"eat",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar_bg"]
 bg_color = Color(0.04, 0.03, 0.06, 0.9)
 corner_radius_top_left = 3
@@ -1976,9 +2067,6 @@ script = ExtResource("24_mi78r")
 main = NodePath("../Audio/MainMusic")
 store = NodePath("../Audio/StoreMusic")
 
-[node name="DaytimeManager" type="Node" parent="GameManager" unique_id=193498021]
-script = ExtResource("31_si3bb")
-
 [node name="BananaManager" type="Node" parent="." unique_id=182585195 node_paths=PackedStringArray("plants", "time", "inventory", "harvest")]
 script = ExtResource("2_xsp7o")
 plants = [NodePath("../GameScene/Banana_Plants/Banana_Tree1"), NodePath("../GameScene/Banana_Plants/Banana_Tree2"), NodePath("../GameScene/Banana_Plants/Banana_Tree3"), NodePath("../GameScene/Banana_Plants/Banana_Tree4"), NodePath("../GameScene/Banana_Plants/Banana_Tree5"), NodePath("../GameScene/Banana_Plants/Banana_Tree6"), NodePath("../GameScene/Banana_Plants/Banana_Tree7"), NodePath("../GameScene/Banana_Plants/Banana_Tree8"), NodePath("../GameScene/Banana_Plants/Banana_Tree9"), NodePath("../GameScene/Banana_Plants/Banana_Tree10"), NodePath("../GameScene/Banana_Plants/Banana_Tree11"), NodePath("../GameScene/Banana_Plants/Banana_Tree12"), NodePath("../GameScene/Banana_Plants/Banana_Tree13"), NodePath("../GameScene/Banana_Plants/Banana_Tree14"), NodePath("../GameScene/Banana_Plants/Banana_Tree15"), NodePath("../GameScene/Banana_Plants/Banana_Tree16")]
@@ -2042,13 +2130,15 @@ violin = NodePath("../../GameManager/Audio/Violin")
 mad_audio = NodePath("../../GameManager/Audio/MonkeyMad")
 monkey_scream = NodePath("../../UIControl/CanvasLayer/MonkeyScream")
 
-[node name="MonkeyCatches" type="Node" parent="MovementManager/MonkeyMovement" unique_id=838908677 node_paths=PackedStringArray("rancher_body", "rancher_movement", "gmanager", "audio", "monkey_movement")]
+[node name="MonkeyCatches" type="Node" parent="MovementManager/MonkeyMovement" unique_id=838908677 node_paths=PackedStringArray("rancher_body", "rancher_movement", "gmanager", "audio", "monkey_movement", "pause", "warning")]
 script = ExtResource("7_3hfy5")
 rancher_body = NodePath("../../../GameScene/Rancher_Body")
 rancher_movement = NodePath("../../RancherMovement")
 gmanager = NodePath("../../../GameManager")
 audio = NodePath("../../../GameManager/Audio/FarmerScream")
 monkey_movement = NodePath("..")
+pause = NodePath("../../../TimeManager/PauseManager")
+warning = NodePath("../../../ShopLayer/WarnPanel")
 
 [node name="CameraManager" type="Node" parent="." unique_id=1157743394 node_paths=PackedStringArray("camera", "rancher_body")]
 script = ExtResource("29_cam")
@@ -2546,7 +2636,7 @@ theme_override_fonts/font = ExtResource("30_58tnd")
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 
-[node name="ControlsLabel" type="RichTextLabel" parent="UIControl/CanvasLayer"]
+[node name="ControlsLabel" type="RichTextLabel" parent="UIControl/CanvasLayer" unique_id=468244837]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -2596,12 +2686,13 @@ scale = Vector2(1.9936857, 1.9936857)
 sprite_frames = SubResource("SpriteFrames_loq3h")
 animation = &"100"
 
-[node name="MonkeyScream" type="Sprite2D" parent="UIControl/CanvasLayer" unique_id=35875061]
+[node name="MonkeyScream" type="AnimatedSprite2D" parent="UIControl/CanvasLayer" unique_id=360550357]
 visible = false
 texture_filter = 1
 position = Vector2(556, 315)
 scale = Vector2(10, 10)
-texture = ExtResource("75_6do87")
+sprite_frames = SubResource("SpriteFrames_wyn4e")
+animation = &"eat"
 
 [node name="FXLayer" type="CanvasLayer" parent="." unique_id=1855965671]
 layer = 4
@@ -2657,92 +2748,6 @@ show_percentage = false
 [node name="ShopLayer" type="CanvasLayer" parent="." unique_id=1946446242]
 process_mode = 3
 layer = 10
-
-[node name="FirstPanel" type="PanelContainer" parent="ShopLayer" unique_id=780323463]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -190.0
-offset_right = 220.0
-offset_bottom = 190.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ShopBox" type="VBoxContainer" parent="ShopLayer/FirstPanel" unique_id=1871023177]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="ShopTitle" type="Label" parent="ShopLayer/FirstPanel/ShopBox" unique_id=530878236]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
-theme_override_font_sizes/font_size = 35
-text = "Night 1 survived"
-horizontal_alignment = 1
-
-[node name="SummaryLabel" type="RichTextLabel" parent="ShopLayer/FirstPanel/ShopBox" unique_id=182341772]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_fonts/normal_font = ExtResource("30_58tnd")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "You may now sleep"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="SleepButton" type="Button" parent="ShopLayer/FirstPanel/ShopBox" unique_id=1943734701]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Sleep until nightfall"
-
-[node name="DayPanel" type="PanelContainer" parent="ShopLayer" unique_id=106361220]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -220.0
-offset_top = -190.0
-offset_right = 220.0
-offset_bottom = 190.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ShopBox" type="VBoxContainer" parent="ShopLayer/DayPanel" unique_id=366720776]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="ShopTitle" type="Label" parent="ShopLayer/DayPanel/ShopBox" unique_id=1275305873]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
-theme_override_fonts/font = ExtResource("30_58tnd")
-theme_override_font_sizes/font_size = 35
-text = "Night 1 survived"
-horizontal_alignment = 1
-
-[node name="SummaryLabel" type="RichTextLabel" parent="ShopLayer/DayPanel/ShopBox" unique_id=706963872]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.85, 0.75, 0.55, 1)
-theme_override_fonts/normal_font = ExtResource("30_58tnd")
-theme_override_font_sizes/normal_font_size = 35
-bbcode_enabled = true
-text = "You may now sleep"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-horizontal_alignment = 1
-
-[node name="SleepButton" type="Button" parent="ShopLayer/DayPanel/ShopBox" unique_id=1602838863]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Sleep until nightfall"
 
 [node name="NightPanel" type="PanelContainer" parent="ShopLayer" unique_id=1280369119]
 visible = false
@@ -2957,6 +2962,47 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "See score"
 
+[node name="WarnPanel" type="PanelContainer" parent="ShopLayer" unique_id=456754971]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -110.0
+offset_right = 220.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinBox" type="VBoxContainer" parent="ShopLayer/WarnPanel" unique_id=1579766458]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="WinTitle" type="Label" parent="ShopLayer/WarnPanel/WinBox" unique_id=1018890915]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
+theme_override_fonts/font = ExtResource("30_58tnd")
+theme_override_font_sizes/font_size = 34
+text = "The monkey got you!"
+horizontal_alignment = 1
+
+[node name="WinText" type="Label" parent="ShopLayer/WarnPanel/WinBox" unique_id=1916023705]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/font = ExtResource("30_58tnd")
+theme_override_font_sizes/font_size = 34
+text = "The ghost scared you off and ate all your bananas.
+It's now the next night and the deadline is closer than ever.
+Be careful, you might not be so lucky next time!"
+horizontal_alignment = 1
+
+[node name="WarnButton" type="Button" parent="ShopLayer/WarnPanel/WinBox" unique_id=1150979110]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Understood"
+
 [node name="EndPanel" type="PanelContainer" parent="ShopLayer" unique_id=778184842]
 visible = false
 anchors_preset = 8
@@ -3125,6 +3171,7 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="ShopLayer/UpgradePanel/ShopBox/Button 3" to="GameManager/ShopManager/UpgradeManager" method="_on_button_3_pressed"]
 [connection signal="pressed" from="ShopLayer/UpgradePanel/ShopBox/BackButton" to="GameManager/ShopManager/UpgradeManager" method="_on_back_button_pressed"]
 [connection signal="pressed" from="ShopLayer/WinPanel/WinBox/MenuButton" to="GameManager" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="ShopLayer/WarnPanel/WinBox/WarnButton" to="MovementManager/MonkeyMovement/MonkeyCatches" method="_on_warn_button_pressed"]
 [connection signal="pressed" from="ShopLayer/EndPanel/EndBox/EndButton" to="GameManager" method="_on_end_button_pressed"]
 [connection signal="value_changed" from="ShopLayer/OptionsPanel/OptionsBox/VolumeRow/VolumeSlider" to="TimeManager/PauseManager" method="_on_volume_slider_value_changed"]
 [connection signal="toggled" from="ShopLayer/OptionsPanel/OptionsBox/FullscreenCheck" to="TimeManager/PauseManager" method="_on_fullscreen_check_toggled"]
