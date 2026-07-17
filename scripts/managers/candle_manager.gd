@@ -42,7 +42,7 @@ func flickering(d):
 	candle.texture_scale = real_scale * current * shrink_scale
 
 func thedark():
-	gmanager.game_over()
+	get_tree().change_scene_to_file("res://scenes/candleloss.tscn")
 
 func refill():
 	wax = maxwax

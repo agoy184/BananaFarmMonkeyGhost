@@ -2,6 +2,10 @@ extends Node2D
 #script to manage the flare that we use to scare the monkey away
 #must be node2d to get the mouse position
 
+#I need to make a new manager for the new flare, and this is a way of killing this one
+#May it rest in peace
+var alive := false
+
 #we need the candle manager to spend wax when we flare
 @export var candle : Node
 
@@ -17,7 +21,7 @@ func _ready():
 @export var waxcost := 10.0
 var target : Vector2
 func _input(event):
-	if event.is_action_pressed("Flare"):
+	if event.is_action_pressed("Flare") and alive == true:
 		#checks that you actually have the wax
 		if candle.wax <= waxcost:
 			return

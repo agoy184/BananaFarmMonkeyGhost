@@ -80,9 +80,11 @@ func enrage():
 	rage_speed = monkey_speed * (1.00 + rage/100.0)
 
 @export var appear_audio : AudioStreamPlayer
+@export var violin : AudioStreamPlayer
 #the monkey appears when it is angry enough
 func appear():
 	appear_audio.play()
+	violin.play()
 	monkey_body.visible = true
 	monkey_body.process_mode = Node.PROCESS_MODE_INHERIT
 	new_position()

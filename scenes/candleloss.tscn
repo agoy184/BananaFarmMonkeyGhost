@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c7i4x3q1sy58"]
+
+[ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="1_5c1nm"]
+[ext_resource type="Script" uid="uid://cln4x08f8ebj5" path="res://scripts/menu/winbutton.gd" id="2_j8al0"]
+[ext_resource type="AudioStream" uid="uid://tpfuhranlg1f" path="res://assets/audio/music/Spooky Violin (Longer).wav" id="3_odkw3"]
+
+[node name="root" type="Node2D" unique_id=1925100225]
+
+[node name="WinPanel" type="PanelContainer" parent="." unique_id=27028317]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 3.0
+offset_right = 1150.0
+offset_bottom = 644.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinBox" type="VBoxContainer" parent="WinPanel" unique_id=1698627193]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="WinTitle" type="Label" parent="WinPanel/WinBox" unique_id=1905629931]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
+theme_override_fonts/font = ExtResource("1_5c1nm")
+theme_override_font_sizes/font_size = 34
+text = "Darkness falls"
+horizontal_alignment = 1
+
+[node name="WinText" type="Label" parent="WinPanel/WinBox" unique_id=173324376]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/font = ExtResource("1_5c1nm")
+theme_override_font_sizes/font_size = 34
+text = "You were warned: the candle must not run out at night.
+But you did not listen, and now darkness comes.
+Inching closer and closer as your breath accelerates.
+
+You try and light up a match.
+But there is nothing to see.
+You try and listen for the screeches.
+But there is nothing to hear.
+Not for you, not anymore.
+
+Darkness falls.
+Farewell.
+"
+horizontal_alignment = 1
+
+[node name="MenuButton" type="Button" parent="WinPanel/WinBox" unique_id=1033767955]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Back to menu!"
+script = ExtResource("2_j8al0")
+
+[node name="LossJingle" type="AudioStreamPlayer" parent="." unique_id=140788734]
+stream = ExtResource("3_odkw3")
+autoplay = true
+
+[connection signal="pressed" from="WinPanel/WinBox/MenuButton" to="WinPanel/WinBox/MenuButton" method="_on_pressed"]

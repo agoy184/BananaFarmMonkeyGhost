@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dyd6xsipwt300"]
+
+[ext_resource type="FontFile" uid="uid://ba2otkfd0ychp" path="res://assets/fonts/DhfSemangat2012Demo-zj2D.ttf" id="1_kqjil"]
+[ext_resource type="Script" uid="uid://cln4x08f8ebj5" path="res://scripts/menu/winbutton.gd" id="2_i4ckn"]
+[ext_resource type="AudioStream" uid="uid://tpfuhranlg1f" path="res://assets/audio/music/Spooky Violin (Longer).wav" id="3_kqjil"]
+
+[node name="root" type="Node2D" unique_id=1925100225]
+
+[node name="WinPanel" type="PanelContainer" parent="." unique_id=27028317]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 3.0
+offset_right = 1150.0
+offset_bottom = 644.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinBox" type="VBoxContainer" parent="WinPanel" unique_id=1698627193]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="WinTitle" type="Label" parent="WinPanel/WinBox" unique_id=1905629931]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.8, 0.66, 1)
+theme_override_fonts/font = ExtResource("1_kqjil")
+theme_override_font_sizes/font_size = 34
+text = "The monkey got you!"
+horizontal_alignment = 1
+
+[node name="WinText" type="Label" parent="WinPanel/WinBox" unique_id=173324376]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.75, 0.55, 1)
+theme_override_fonts/font = ExtResource("1_kqjil")
+theme_override_font_sizes/font_size = 34
+text = "The vengeful spirit has caught you one time too many, and you are dragged into the 
+screeching darkness with no chance for recourse.
+
+There is no way of knowing exactly how painful your fate was, though there is one
+more scream now echoing through the night.
+
+However, there is also good news:
+the bank was able to recoup your initial investment in full, 
+and promptly found a new sucker to buy the plantation."
+horizontal_alignment = 1
+
+[node name="MenuButton" type="Button" parent="WinPanel/WinBox" unique_id=1033767955]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Back to menu!"
+script = ExtResource("2_i4ckn")
+
+[node name="LossJingle" type="AudioStreamPlayer" parent="." unique_id=140788734]
+stream = ExtResource("3_kqjil")
+autoplay = true
+
+[connection signal="pressed" from="WinPanel/WinBox/MenuButton" to="WinPanel/WinBox/MenuButton" method="_on_pressed"]

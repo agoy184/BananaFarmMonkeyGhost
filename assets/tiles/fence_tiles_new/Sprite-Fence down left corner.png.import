@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1dxnl4upcl2v"
-path="res://.godot/imported/Sprite-fence two.png-8312deee595070e048a9faba2765b7ba.ctex"
+uid="uid://bepp4bkmnym2c"
+path="res://.godot/imported/Sprite-Fence down left corner.png-f8d2c861a6b02a5cb30abaee76f12bda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/Sprite-fence two.png"
-dest_files=["res://.godot/imported/Sprite-fence two.png-8312deee595070e048a9faba2765b7ba.ctex"]
+source_file="res://assets/tiles/fence_tiles_new/Sprite-Fence down left corner.png"
+dest_files=["res://.godot/imported/Sprite-Fence down left corner.png-f8d2c861a6b02a5cb30abaee76f12bda.ctex"]
 
 [params]
 
